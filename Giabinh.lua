@@ -1,4 +1,4 @@
--- Gui to Lua (Hirose - CHILLI x VENYX Loader Size 300 & Custom Image BG)
+-- Gui to Lua (Hirose - CHILLI x VENYX Loader Size 300 & Solid Image BG)
 local CoreGui = game:GetService("CoreGui")
 local TweenService = game:GetService("TweenService")
 local UserInputService = game:GetService("UserInputService")
@@ -59,9 +59,10 @@ MainFrame.Parent = ScreenGui
 MainFrame.AnchorPoint = Vector2.new(0.5, 0.5)
 MainFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
 MainFrame.Size = UDim2.new(0, 300, 0, 410)
-MainFrame.BackgroundColor3 = Color3.fromRGB(16, 16, 20)
-MainFrame.BackgroundTransparency = 0.35 -- Làm mờ nền đen để lộ ảnh nền Roblox
+MainFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+MainFrame.BackgroundTransparency = 0 -- Không trong suốt
 MainFrame.BorderSizePixel = 0
+MainFrame.ClipsDescendants = true
 
 local MainCorner = Instance.new("UICorner")
 MainCorner.CornerRadius = UDim.new(0, 12)
@@ -72,13 +73,13 @@ MainStroke.Color = Color3.fromRGB(45, 45, 55)
 MainStroke.Thickness = 1.2
 MainStroke.Parent = MainFrame
 
--- Hình nền Roblox tùy chỉnh
+-- Hình nền Roblox đặc (Phủ kín toàn bộ khung)
 local BgImage = Instance.new("ImageLabel")
 BgImage.Parent = MainFrame
 BgImage.Size = UDim2.new(1, 0, 1, 0)
 BgImage.BackgroundTransparency = 1
 BgImage.Image = "rbxassetid://79121294509198"
-BgImage.ScaleType = Enum.ScaleType.Slice
+BgImage.ScaleType = Enum.ScaleType.Stretch
 BgImage.ZIndex = 0
 
 -- Kéo thả cửa sổ
@@ -158,8 +159,8 @@ local ProfileCard = Instance.new("Frame")
 ProfileCard.Parent = MainFrame
 ProfileCard.Position = UDim2.new(0, 8, 0, 38)
 ProfileCard.Size = UDim2.new(1, -16, 0, 56)
-ProfileCard.BackgroundColor3 = Color3.fromRGB(38, 18, 20)
-ProfileCard.BackgroundTransparency = 0.2
+ProfileCard.BackgroundColor3 = Color3.fromRGB(20, 10, 12)
+ProfileCard.BackgroundTransparency = 0.3
 ProfileCard.ZIndex = 2
 local ProfileStroke = Instance.new("UIStroke", ProfileCard)
 ProfileStroke.Color = Color3.fromRGB(95, 35, 35)
@@ -170,6 +171,7 @@ IconBox.Parent = ProfileCard
 IconBox.Position = UDim2.new(0, 8, 0.5, -16)
 IconBox.Size = UDim2.new(0, 32, 0, 32)
 IconBox.BackgroundColor3 = Color3.fromRGB(55, 22, 24)
+IconBox.BackgroundTransparency = 0.2
 IconBox.Text = "🌶️"
 IconBox.TextSize = 18
 IconBox.ZIndex = 2
@@ -216,8 +218,8 @@ local VirexCard = Instance.new("Frame")
 VirexCard.Parent = MainFrame
 VirexCard.Position = UDim2.new(0, 8, 0, 100)
 VirexCard.Size = UDim2.new(1, -16, 0, 38)
-VirexCard.BackgroundColor3 = Color3.fromRGB(18, 42, 34)
-VirexCard.BackgroundTransparency = 0.2
+VirexCard.BackgroundColor3 = Color3.fromRGB(10, 25, 20)
+VirexCard.BackgroundTransparency = 0.3
 VirexCard.ZIndex = 2
 local VirexStroke = Instance.new("UIStroke", VirexCard)
 VirexStroke.Color = Color3.fromRGB(35, 95, 70)
@@ -304,8 +306,8 @@ local function CreateHubCard(name, pos, icon, title, subtitle)
 	Card.Parent = HubContainer
 	Card.Position = pos
 	Card.Size = UDim2.new(0.485, 0, 1, 0)
-	Card.BackgroundColor3 = Color3.fromRGB(26, 26, 32)
-	Card.BackgroundTransparency = 0.2
+	Card.BackgroundColor3 = Color3.fromRGB(16, 16, 22)
+	Card.BackgroundTransparency = 0.3
 	Card.Text = ""
 	Card.AutoButtonColor = false
 	Card.ZIndex = 2
@@ -354,7 +356,7 @@ local function CreateHubCard(name, pos, icon, title, subtitle)
 	StatusPill.Parent = Card
 	StatusPill.Position = UDim2.new(0, 6, 1, -26)
 	StatusPill.Size = UDim2.new(1, -12, 0, 20)
-	StatusPill.BackgroundColor3 = Color3.fromRGB(38, 38, 46)
+	StatusPill.BackgroundColor3 = Color3.fromRGB(28, 28, 36)
 	StatusPill.Font = Enum.Font.GothamBold
 	StatusPill.Text = "Chọn"
 	StatusPill.TextColor3 = Color3.fromRGB(180, 180, 190)
@@ -377,10 +379,10 @@ local function UpdateHubSelection()
 		ChilliCard.StatusPill.TextColor3 = Color3.fromRGB(255, 255, 255)
 		ChilliCard.StatusPill.Text = "✓ CHỌN"
 
-		VenyxCard.BackgroundColor3 = Color3.fromRGB(26, 26, 32)
+		VenyxCard.BackgroundColor3 = Color3.fromRGB(16, 16, 22)
 		VenyxCard.Stroke.Color = Color3.fromRGB(50, 50, 60)
 		VenyxCard.Stroke.Thickness = 1.2
-		VenyxCard.StatusPill.BackgroundColor3 = Color3.fromRGB(38, 38, 46)
+		VenyxCard.StatusPill.BackgroundColor3 = Color3.fromRGB(28, 28, 36)
 		VenyxCard.StatusPill.TextColor3 = Color3.fromRGB(180, 180, 190)
 		VenyxCard.StatusPill.Text = "Chọn"
 	else
@@ -391,10 +393,10 @@ local function UpdateHubSelection()
 		VenyxCard.StatusPill.TextColor3 = Color3.fromRGB(255, 255, 255)
 		VenyxCard.StatusPill.Text = "✓ CHỌN"
 
-		ChilliCard.BackgroundColor3 = Color3.fromRGB(26, 26, 32)
+		ChilliCard.BackgroundColor3 = Color3.fromRGB(16, 16, 22)
 		ChilliCard.Stroke.Color = Color3.fromRGB(50, 50, 60)
 		ChilliCard.Stroke.Thickness = 1.2
-		ChilliCard.StatusPill.BackgroundColor3 = Color3.fromRGB(38, 38, 46)
+		ChilliCard.StatusPill.BackgroundColor3 = Color3.fromRGB(28, 28, 36)
 		ChilliCard.StatusPill.TextColor3 = Color3.fromRGB(180, 180, 190)
 		ChilliCard.StatusPill.Text = "Chọn"
 	end
@@ -417,8 +419,8 @@ local FpsCard = Instance.new("Frame")
 FpsCard.Parent = MainFrame
 FpsCard.Position = UDim2.new(0, 8, 0, 250)
 FpsCard.Size = UDim2.new(1, -16, 0, 36)
-FpsCard.BackgroundColor3 = Color3.fromRGB(24, 25, 32)
-FpsCard.BackgroundTransparency = 0.2
+FpsCard.BackgroundColor3 = Color3.fromRGB(16, 20, 25)
+FpsCard.BackgroundTransparency = 0.3
 FpsCard.ZIndex = 2
 Instance.new("UICorner", FpsCard).CornerRadius = UDim.new(0, 8)
 
@@ -469,8 +471,8 @@ local DiscordCard = Instance.new("Frame")
 DiscordCard.Parent = MainFrame
 DiscordCard.Position = UDim2.new(0, 8, 0, 290)
 DiscordCard.Size = UDim2.new(1, -16, 0, 36)
-DiscordCard.BackgroundColor3 = Color3.fromRGB(26, 26, 46)
-DiscordCard.BackgroundTransparency = 0.2
+DiscordCard.BackgroundColor3 = Color3.fromRGB(18, 18, 32)
+DiscordCard.BackgroundTransparency = 0.3
 DiscordCard.ZIndex = 2
 local DiscordStroke = Instance.new("UIStroke", DiscordCard)
 DiscordStroke.Color = Color3.fromRGB(65, 65, 130)
