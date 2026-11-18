@@ -11,7 +11,7 @@ if CoreGui:FindFirstChild("HiroseHubLoader") then
 end
 
 -- Cấu hình Script & Link
-local DISCORD_LINK = "https://discord.gg/uqhEpzXy9q"
+local DISCORD_LINK = "https://discord.gg/GuZRUBG7H"
 local SCRIPTS = {
 	Chilli = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/tienkhanh1/spicy/main/Chilli.lua"))()',
 	Venyx = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/tienkhanh1/Venyx/main/VenyxHub"))()'
