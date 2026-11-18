@@ -1,4 +1,4 @@
--- Gui to Lua (Hirose - CHILLI x VENYX Loader Final Custom)
+-- ==================== PHẦN 1: CORE & HEADER ====================
 local CoreGui = game:GetService("CoreGui")
 local TweenService = game:GetService("TweenService")
 local UserInputService = game:GetService("UserInputService")
@@ -52,13 +52,13 @@ ScreenGui.Parent = CoreGui
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 ScreenGui.ResetOnSpawn = false
 
--- Khung chính (Size ngang 300, tăng nhẹ chiều cao một chút để chứa dòng chúc)
+-- Khung chính
 local MainFrame = Instance.new("Frame")
 MainFrame.Name = "MainFrame"
 MainFrame.Parent = ScreenGui
 MainFrame.AnchorPoint = Vector2.new(0.5, 0.5)
 MainFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
-MainFrame.Size = UDim2.new(0, 300, 0, 440)
+MainFrame.Size = UDim2.new(0, 300, 0, 455)
 MainFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 MainFrame.BackgroundTransparency = 0
 MainFrame.BorderSizePixel = 0
@@ -73,7 +73,7 @@ MainStroke.Color = Color3.fromRGB(255, 105, 35)
 MainStroke.Thickness = 1.5
 MainStroke.Parent = MainFrame
 
--- Hình nền Roblox (Giữ nguyên ảnh ID của bạn)
+-- Hình nền Roblox (ID: 139482010748688)
 local BgImage = Instance.new("ImageLabel")
 BgImage.Parent = MainFrame
 BgImage.Size = UDim2.new(1, 0, 1, 0)
@@ -108,7 +108,7 @@ UserInputService.InputChanged:Connect(function(input)
 	end
 end)
 
--- ==================== TOP BAR ====================
+-- Top Bar
 local TopBar = Instance.new("Frame")
 TopBar.Parent = MainFrame
 TopBar.Size = UDim2.new(1, 0, 0, 36)
@@ -122,7 +122,7 @@ TitleLabel.Size = UDim2.new(0, 160, 1, 0)
 TitleLabel.BackgroundTransparency = 1
 TitleLabel.Font = Enum.Font.GothamBold
 TitleLabel.Text = "🌶️ CHILLI x VENYX"
-TitleLabel.TextColor3 = Color3.fromRGB(0, 0, 0) -- Đổi thành màu đen theo yêu cầu
+TitleLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
 TitleLabel.TextSize = 13
 TitleLabel.TextXAlignment = Enum.TextXAlignment.Left
 TitleLabel.ZIndex = 2
@@ -154,7 +154,7 @@ CloseBtn.MouseButton1Click:Connect(function()
 	ScreenGui:Destroy()
 end)
 
--- ==================== PROFILE CARD (HIROSE) ====================
+-- Profile Card (Hirose)
 local ProfileCard = Instance.new("Frame")
 ProfileCard.Parent = MainFrame
 ProfileCard.Position = UDim2.new(0, 8, 0, 38)
@@ -212,7 +212,7 @@ StatusLabel.TextSize = 9
 StatusLabel.TextXAlignment = Enum.TextXAlignment.Left
 StatusLabel.ZIndex = 2
 
--- ==================== TÍNH NĂNG MỚI V11 ====================
+-- Virex Card
 local VirexCard = Instance.new("Frame")
 VirexCard.Parent = MainFrame
 VirexCard.Position = UDim2.new(0, 8, 0, 100)
@@ -259,8 +259,7 @@ RateBadge.TextColor3 = Color3.fromRGB(120, 255, 190)
 RateBadge.TextSize = 8
 RateBadge.ZIndex = 2
 Instance.new("UICorner", RateBadge).CornerRadius = UDim.new(1, 0)
-
--- ==================== CHỌN HUB ====================
+-- ==================== PHẦN 2: MENUS, WISH & EXECUTE ====================
 local Sec2Title = Instance.new("TextLabel")
 Sec2Title.Parent = MainFrame
 Sec2Title.Position = UDim2.new(0, 10, 0, 144)
@@ -291,7 +290,7 @@ SoundBtn.MouseButton1Click:Connect(function()
 	SoundBtn.BackgroundColor3 = SoundEnabled and Color3.fromRGB(32, 140, 78) or Color3.fromRGB(60, 60, 70)
 end)
 
--- Container 2 nút chọn menu (Đã phóng to và canh chỉnh chính giữa cân đối hơn)
+-- Container 2 nút chọn menu (Chilli & Venyx to, cân đối)
 local HubContainer = Instance.new("Frame")
 HubContainer.Parent = MainFrame
 HubContainer.Position = UDim2.new(0, 8, 0, 166)
@@ -413,7 +412,7 @@ end)
 
 UpdateHubSelection()
 
--- ==================== FPS BOOST CARD ====================
+-- FPS Boost Card
 local FpsCard = Instance.new("Frame")
 FpsCard.Parent = MainFrame
 FpsCard.Position = UDim2.new(0, 8, 0, 264)
@@ -465,7 +464,7 @@ FpsBtn.MouseButton1Click:Connect(function()
 	FpsBtn.BackgroundColor3 = FpsBoostEnabled and Color3.fromRGB(32, 150, 85) or Color3.fromRGB(60, 60, 70)
 end)
 
--- ==================== DISCORD CARD ====================
+-- Discord Card
 local DiscordCard = Instance.new("Frame")
 DiscordCard.Parent = MainFrame
 DiscordCard.Position = UDim2.new(0, 8, 0, 304)
@@ -522,23 +521,31 @@ CopyBtn.MouseButton1Click:Connect(function()
 	CopyBtn.Text = "📋 SAO CHÉP"
 end)
 
--- ==================== DÒNG CHÚC (MỚI THÊM) ====================
+-- Dòng chúc nổi bật có nền mờ chống chìm chữ
+local WishContainer = Instance.new("Frame")
+WishContainer.Parent = MainFrame
+WishContainer.Position = UDim2.new(0, 8, 0, 345)
+WishContainer.Size = UDim2.new(1, -16, 0, 24)
+WishContainer.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+WishContainer.BackgroundTransparency = 0.5
+WishContainer.ZIndex = 2
+Instance.new("UICorner", WishContainer).CornerRadius = UDim.new(0, 6)
+
 local WishLabel = Instance.new("TextLabel")
-WishLabel.Parent = MainFrame
-WishLabel.Position = UDim2.new(0, 8, 0, 345)
-WishLabel.Size = UDim2.new(1, -16, 0, 20)
+WishLabel.Parent = WishContainer
+WishLabel.Size = UDim2.new(1, 0, 1, 0)
 WishLabel.BackgroundTransparency = 1
 WishLabel.Font = Enum.Font.GothamBold
-WishLabel.Text = "CHÚC BẠN CHƠI GAME VUI VẺ 👉👈"
-WishLabel.TextColor3 = Color3.fromRGB(255, 180, 220) -- Màu hồng xinh xắn dễ thương
+WishLabel.Text = "✨ CHÚC BẠN CHƠI GAME VUI VẺ 👉👈"
+WishLabel.TextColor3 = Color3.fromRGB(255, 225, 80)
 WishLabel.TextSize = 10
-WishLabel.ZIndex = 2
+WishLabel.ZIndex = 3
 
--- ==================== NÚT CHẠY SCRIPT ====================
+-- Nút Chạy Script
 local RunBtn = Instance.new("TextButton")
 RunBtn.Parent = MainFrame
-RunBtn.Position = UDim2.new(0, 8, 1, -34)
-RunBtn.Size = UDim2.new(1, -16, 0, 26)
+RunBtn.Position = UDim2.new(0, 8, 1, -36)
+RunBtn.Size = UDim2.new(1, -16, 0, 28)
 RunBtn.BackgroundColor3 = Color3.fromRGB(255, 105, 35)
 RunBtn.Font = Enum.Font.GothamBold
 RunBtn.Text = "🚀 CHẠY SCRIPT"
