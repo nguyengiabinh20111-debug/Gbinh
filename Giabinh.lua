@@ -1,4 +1,4 @@
--- Gui to Lua (Hirose - CHILLI x VENYX Loader Size 300 & Fixed Image BG)
+-- Gui to Lua (Hirose - CHILLI x VENYX Loader Final Custom)
 local CoreGui = game:GetService("CoreGui")
 local TweenService = game:GetService("TweenService")
 local UserInputService = game:GetService("UserInputService")
@@ -52,14 +52,14 @@ ScreenGui.Parent = CoreGui
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 ScreenGui.ResetOnSpawn = false
 
--- Khung chính (Size ngang 300)
+-- Khung chính (Size ngang 300, tăng nhẹ chiều cao một chút để chứa dòng chúc)
 local MainFrame = Instance.new("Frame")
 MainFrame.Name = "MainFrame"
 MainFrame.Parent = ScreenGui
 MainFrame.AnchorPoint = Vector2.new(0.5, 0.5)
 MainFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
-MainFrame.Size = UDim2.new(0, 300, 0, 410)
-MainFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 25)
+MainFrame.Size = UDim2.new(0, 300, 0, 440)
+MainFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 MainFrame.BackgroundTransparency = 0
 MainFrame.BorderSizePixel = 0
 MainFrame.ClipsDescendants = true
@@ -69,16 +69,16 @@ MainCorner.CornerRadius = UDim.new(0, 12)
 MainCorner.Parent = MainFrame
 
 local MainStroke = Instance.new("UIStroke")
-MainStroke.Color = Color3.fromRGB(70, 70, 85)
+MainStroke.Color = Color3.fromRGB(255, 105, 35)
 MainStroke.Thickness = 1.5
 MainStroke.Parent = MainFrame
 
--- Hình nền Roblox (Dùng Stretch để hiển thị chuẩn xác không bị đen)
+-- Hình nền Roblox (Giữ nguyên ảnh ID của bạn)
 local BgImage = Instance.new("ImageLabel")
 BgImage.Parent = MainFrame
 BgImage.Size = UDim2.new(1, 0, 1, 0)
 BgImage.BackgroundTransparency = 1
-BgImage.Image = "rbxassetid://139482010748688"
+BgImage.Image = "rbxassetid://79121294509198"
 BgImage.ScaleType = Enum.ScaleType.Stretch
 BgImage.ZIndex = 0
 
@@ -122,8 +122,8 @@ TitleLabel.Size = UDim2.new(0, 160, 1, 0)
 TitleLabel.BackgroundTransparency = 1
 TitleLabel.Font = Enum.Font.GothamBold
 TitleLabel.Text = "🌶️ CHILLI x VENYX"
-TitleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-TitleLabel.TextSize = 12
+TitleLabel.TextColor3 = Color3.fromRGB(0, 0, 0) -- Đổi thành màu đen theo yêu cầu
+TitleLabel.TextSize = 13
 TitleLabel.TextXAlignment = Enum.TextXAlignment.Left
 TitleLabel.ZIndex = 2
 
@@ -160,7 +160,7 @@ ProfileCard.Parent = MainFrame
 ProfileCard.Position = UDim2.new(0, 8, 0, 38)
 ProfileCard.Size = UDim2.new(1, -16, 0, 56)
 ProfileCard.BackgroundColor3 = Color3.fromRGB(25, 12, 14)
-ProfileCard.BackgroundTransparency = 0.4
+ProfileCard.BackgroundTransparency = 0.35
 ProfileCard.ZIndex = 2
 local ProfileStroke = Instance.new("UIStroke", ProfileCard)
 ProfileStroke.Color = Color3.fromRGB(120, 45, 45)
@@ -218,7 +218,7 @@ VirexCard.Parent = MainFrame
 VirexCard.Position = UDim2.new(0, 8, 0, 100)
 VirexCard.Size = UDim2.new(1, -16, 0, 38)
 VirexCard.BackgroundColor3 = Color3.fromRGB(12, 35, 26)
-VirexCard.BackgroundTransparency = 0.4
+VirexCard.BackgroundTransparency = 0.35
 VirexCard.ZIndex = 2
 local VirexStroke = Instance.new("UIStroke", VirexCard)
 VirexStroke.Color = Color3.fromRGB(40, 110, 80)
@@ -291,11 +291,11 @@ SoundBtn.MouseButton1Click:Connect(function()
 	SoundBtn.BackgroundColor3 = SoundEnabled and Color3.fromRGB(32, 140, 78) or Color3.fromRGB(60, 60, 70)
 end)
 
--- Container 2 nút chọn menu
+-- Container 2 nút chọn menu (Đã phóng to và canh chỉnh chính giữa cân đối hơn)
 local HubContainer = Instance.new("Frame")
 HubContainer.Parent = MainFrame
-HubContainer.Position = UDim2.new(0, 8, 0, 164)
-HubContainer.Size = UDim2.new(1, -16, 0, 80)
+HubContainer.Position = UDim2.new(0, 8, 0, 166)
+HubContainer.Size = UDim2.new(1, -16, 0, 90)
 HubContainer.BackgroundTransparency = 1
 HubContainer.ZIndex = 2
 
@@ -305,63 +305,63 @@ local function CreateHubCard(name, pos, icon, title, subtitle)
 	Card.Parent = HubContainer
 	Card.Position = pos
 	Card.Size = UDim2.new(0.485, 0, 1, 0)
-	Card.BackgroundColor3 = Color3.fromRGB(25, 25, 32)
-	Card.BackgroundTransparency = 0.4
+	Card.BackgroundColor3 = Color3.fromRGB(20, 20, 28)
+	Card.BackgroundTransparency = 0.3
 	Card.Text = ""
 	Card.AutoButtonColor = false
 	Card.ZIndex = 2
-	Instance.new("UICorner", Card).CornerRadius = UDim.new(0, 8)
+	Instance.new("UICorner", Card).CornerRadius = UDim.new(0, 10)
 
 	local Stroke = Instance.new("UIStroke", Card)
 	Stroke.Name = "Stroke"
-	Stroke.Color = Color3.fromRGB(70, 70, 85)
-	Stroke.Thickness = 1.2
+	Stroke.Color = Color3.fromRGB(80, 80, 100)
+	Stroke.Thickness = 1.5
 
 	local Icon = Instance.new("TextLabel")
 	Icon.Parent = Card
-	Icon.Position = UDim2.new(0, 8, 0, 6)
-	Icon.Size = UDim2.new(0, 24, 0, 24)
+	Icon.Position = UDim2.new(0, 10, 0, 8)
+	Icon.Size = UDim2.new(0, 30, 0, 30)
 	Icon.BackgroundTransparency = 1
 	Icon.Text = icon
-	Icon.TextSize = 16
+	Icon.TextSize = 20
 	Icon.ZIndex = 2
 
 	local Title = Instance.new("TextLabel")
 	Title.Parent = Card
-	Title.Position = UDim2.new(0, 36, 0, 6)
-	Title.Size = UDim2.new(1, -44, 0, 14)
+	Title.Position = UDim2.new(0, 46, 0, 8)
+	Title.Size = UDim2.new(1, -52, 0, 18)
 	Title.BackgroundTransparency = 1
 	Title.Font = Enum.Font.GothamBold
 	Title.Text = title
 	Title.TextColor3 = Color3.fromRGB(255, 255, 255)
-	Title.TextSize = 11
+	Title.TextSize = 13
 	Title.TextXAlignment = Enum.TextXAlignment.Left
 	Title.ZIndex = 2
 
 	local Sub = Instance.new("TextLabel")
 	Sub.Parent = Card
-	Sub.Position = UDim2.new(0, 36, 0, 20)
-	Sub.Size = UDim2.new(1, -44, 0, 14)
+	Sub.Position = UDim2.new(0, 46, 0, 26)
+	Sub.Size = UDim2.new(1, -52, 0, 16)
 	Sub.BackgroundTransparency = 1
 	Sub.Font = Enum.Font.Gotham
 	Sub.Text = subtitle
-	Sub.TextColor3 = Color3.fromRGB(190, 190, 205)
-	Sub.TextSize = 9
+	Sub.TextColor3 = Color3.fromRGB(200, 200, 215)
+	Sub.TextSize = 10
 	Sub.TextXAlignment = Enum.TextXAlignment.Left
 	Sub.ZIndex = 2
 
 	local StatusPill = Instance.new("TextLabel")
 	StatusPill.Name = "StatusPill"
 	StatusPill.Parent = Card
-	StatusPill.Position = UDim2.new(0, 6, 1, -26)
-	StatusPill.Size = UDim2.new(1, -12, 0, 20)
-	StatusPill.BackgroundColor3 = Color3.fromRGB(45, 45, 55)
+	StatusPill.Position = UDim2.new(0, 8, 1, -30)
+	StatusPill.Size = UDim2.new(1, -16, 0, 22)
+	StatusPill.BackgroundColor3 = Color3.fromRGB(45, 45, 58)
 	StatusPill.Font = Enum.Font.GothamBold
 	StatusPill.Text = "Chọn"
 	StatusPill.TextColor3 = Color3.fromRGB(220, 220, 230)
-	StatusPill.TextSize = 9
+	StatusPill.TextSize = 10
 	StatusPill.ZIndex = 2
-	Instance.new("UICorner", StatusPill).CornerRadius = UDim.new(0, 5)
+	Instance.new("UICorner", StatusPill).CornerRadius = UDim.new(0, 6)
 
 	return Card
 end
@@ -371,31 +371,31 @@ local VenyxCard = CreateHubCard("VenyxCard", UDim2.new(0.515, 0, 0, 0), "⚡", "
 
 local function UpdateHubSelection()
 	if SelectedHub == "Chilli" then
-		ChilliCard.BackgroundColor3 = Color3.fromRGB(75, 30, 22)
+		ChilliCard.BackgroundColor3 = Color3.fromRGB(80, 30, 22)
 		ChilliCard.Stroke.Color = Color3.fromRGB(255, 255, 255)
-		ChilliCard.Stroke.Thickness = 1.5
+		ChilliCard.Stroke.Thickness = 2
 		ChilliCard.StatusPill.BackgroundColor3 = Color3.fromRGB(245, 100, 50)
 		ChilliCard.StatusPill.TextColor3 = Color3.fromRGB(255, 255, 255)
-		ChilliCard.StatusPill.Text = "✓ CHỌN"
+		ChilliCard.StatusPill.Text = "✓ ĐÃ CHỌN"
 
-		VenyxCard.BackgroundColor3 = Color3.fromRGB(25, 25, 32)
-		VenyxCard.Stroke.Color = Color3.fromRGB(70, 70, 85)
-		VenyxCard.Stroke.Thickness = 1.2
-		VenyxCard.StatusPill.BackgroundColor3 = Color3.fromRGB(45, 45, 55)
+		VenyxCard.BackgroundColor3 = Color3.fromRGB(20, 20, 28)
+		VenyxCard.Stroke.Color = Color3.fromRGB(80, 80, 100)
+		VenyxCard.Stroke.Thickness = 1.5
+		VenyxCard.StatusPill.BackgroundColor3 = Color3.fromRGB(45, 45, 58)
 		VenyxCard.StatusPill.TextColor3 = Color3.fromRGB(220, 220, 230)
 		VenyxCard.StatusPill.Text = "Chọn"
 	else
-		VenyxCard.BackgroundColor3 = Color3.fromRGB(38, 35, 78)
+		VenyxCard.BackgroundColor3 = Color3.fromRGB(38, 35, 85)
 		VenyxCard.Stroke.Color = Color3.fromRGB(255, 255, 255)
-		VenyxCard.Stroke.Thickness = 1.5
+		VenyxCard.Stroke.Thickness = 2
 		VenyxCard.StatusPill.BackgroundColor3 = Color3.fromRGB(110, 100, 255)
 		VenyxCard.StatusPill.TextColor3 = Color3.fromRGB(255, 255, 255)
-		VenyxCard.StatusPill.Text = "✓ CHỌN"
+		VenyxCard.StatusPill.Text = "✓ ĐÃ CHỌN"
 
-		ChilliCard.BackgroundColor3 = Color3.fromRGB(25, 25, 32)
-		ChilliCard.Stroke.Color = Color3.fromRGB(70, 70, 85)
-		ChilliCard.Stroke.Thickness = 1.2
-		ChilliCard.StatusPill.BackgroundColor3 = Color3.fromRGB(45, 45, 55)
+		ChilliCard.BackgroundColor3 = Color3.fromRGB(20, 20, 28)
+		ChilliCard.Stroke.Color = Color3.fromRGB(80, 80, 100)
+		ChilliCard.Stroke.Thickness = 1.5
+		ChilliCard.StatusPill.BackgroundColor3 = Color3.fromRGB(45, 45, 58)
 		ChilliCard.StatusPill.TextColor3 = Color3.fromRGB(220, 220, 230)
 		ChilliCard.StatusPill.Text = "Chọn"
 	end
@@ -416,10 +416,10 @@ UpdateHubSelection()
 -- ==================== FPS BOOST CARD ====================
 local FpsCard = Instance.new("Frame")
 FpsCard.Parent = MainFrame
-FpsCard.Position = UDim2.new(0, 8, 0, 250)
+FpsCard.Position = UDim2.new(0, 8, 0, 264)
 FpsCard.Size = UDim2.new(1, -16, 0, 36)
 FpsCard.BackgroundColor3 = Color3.fromRGB(20, 28, 35)
-FpsCard.BackgroundTransparency = 0.4
+FpsCard.BackgroundTransparency = 0.35
 FpsCard.ZIndex = 2
 Instance.new("UICorner", FpsCard).CornerRadius = UDim.new(0, 8)
 
@@ -468,10 +468,10 @@ end)
 -- ==================== DISCORD CARD ====================
 local DiscordCard = Instance.new("Frame")
 DiscordCard.Parent = MainFrame
-DiscordCard.Position = UDim2.new(0, 8, 0, 290)
+DiscordCard.Position = UDim2.new(0, 8, 0, 304)
 DiscordCard.Size = UDim2.new(1, -16, 0, 36)
 DiscordCard.BackgroundColor3 = Color3.fromRGB(25, 25, 45)
-DiscordCard.BackgroundTransparency = 0.4
+DiscordCard.BackgroundTransparency = 0.35
 DiscordCard.ZIndex = 2
 local DiscordStroke = Instance.new("UIStroke", DiscordCard)
 DiscordStroke.Color = Color3.fromRGB(80, 80, 150)
@@ -522,10 +522,22 @@ CopyBtn.MouseButton1Click:Connect(function()
 	CopyBtn.Text = "📋 SAO CHÉP"
 end)
 
+-- ==================== DÒNG CHÚC (MỚI THÊM) ====================
+local WishLabel = Instance.new("TextLabel")
+WishLabel.Parent = MainFrame
+WishLabel.Position = UDim2.new(0, 8, 0, 345)
+WishLabel.Size = UDim2.new(1, -16, 0, 20)
+WishLabel.BackgroundTransparency = 1
+WishLabel.Font = Enum.Font.GothamBold
+WishLabel.Text = "CHÚC BẠN CHƠI GAME VUI VẺ 👉👈"
+WishLabel.TextColor3 = Color3.fromRGB(255, 180, 220) -- Màu hồng xinh xắn dễ thương
+WishLabel.TextSize = 10
+WishLabel.ZIndex = 2
+
 -- ==================== NÚT CHẠY SCRIPT ====================
 local RunBtn = Instance.new("TextButton")
 RunBtn.Parent = MainFrame
-RunBtn.Position = UDim2.new(0, 8, 1, -32)
+RunBtn.Position = UDim2.new(0, 8, 1, -34)
 RunBtn.Size = UDim2.new(1, -16, 0, 26)
 RunBtn.BackgroundColor3 = Color3.fromRGB(255, 105, 35)
 RunBtn.Font = Enum.Font.GothamBold
