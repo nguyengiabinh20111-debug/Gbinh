@@ -28,13 +28,13 @@ ScreenGui.Parent = CoreGui
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 ScreenGui.ResetOnSpawn = false
 
--- Khung chính (Main Frame - Thu gọn lại)
+-- Khung chính (Main Frame - Cân đối, thanh thoát hơn)
 local MainFrame = Instance.new("Frame")
 MainFrame.Name = "MainFrame"
 MainFrame.Parent = ScreenGui
 MainFrame.AnchorPoint = Vector2.new(0.5, 0.5)
 MainFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
-MainFrame.Size = UDim2.new(0, 380, 0, 395)
+MainFrame.Size = UDim2.new(0, 380, 0, 435)
 MainFrame.BackgroundColor3 = Color3.fromRGB(16, 16, 20)
 MainFrame.BorderSizePixel = 0
 
@@ -140,7 +140,7 @@ NameLabel.Position = UDim2.new(0, 50, 0, 7)
 NameLabel.Size = UDim2.new(1, -60, 0, 14)
 NameLabel.BackgroundTransparency = 1
 NameLabel.Font = Enum.Font.GothamBold
-NameLabel.Text = "Hirose Loader"
+NameLabel.Text = "sonhuy1077"
 NameLabel.TextColor3 = Color3.fromRGB(255, 190, 120)
 NameLabel.TextSize = 12
 NameLabel.TextXAlignment = Enum.TextXAlignment.Left
@@ -151,15 +151,58 @@ StatusLabel.Position = UDim2.new(0, 50, 0, 26)
 StatusLabel.Size = UDim2.new(1, -60, 0, 18)
 StatusLabel.BackgroundTransparency = 1
 StatusLabel.Font = Enum.Font.GothamMedium
-StatusLabel.Text = "● Tối ưu hóa mượt mà · Sẵn sàng"
-StatusLabel.TextColor3 = Color3.fromRGB(80, 220, 120)
-StatusLabel.TextSize = 10
+StatusLabel.Text = "Finder Free chuẩn cao · Giảm lag · Mượt ⚡"
+StatusLabel.TextColor3 = Color3.fromRGB(220, 140, 90)
+StatusLabel.TextSize = 9
 StatusLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+-- ==================== TÍNH NĂNG MỚI (VIREX - FINDER) ====================
+local FeatureCard = Instance.new("Frame")
+FeatureCard.Parent = MainFrame
+FeatureCard.Position = UDim2.new(0, 12, 0, 98)
+FeatureCard.Size = UDim2.new(1, -24, 0, 42)
+FeatureCard.BackgroundColor3 = Color3.fromRGB(24, 25, 32)
+local FeatureStroke = Instance.new("UIStroke", FeatureCard)
+FeatureStroke.Color = Color3.fromRGB(45, 65, 50)
+Instance.new("UICorner", FeatureCard).CornerRadius = UDim.new(0, 8)
+
+local FeatureTitle = Instance.new("TextLabel")
+FeatureTitle.Parent = FeatureCard
+FeatureTitle.Position = UDim2.new(0, 10, 0, 5)
+FeatureTitle.Size = UDim2.new(0, 200, 0, 15)
+FeatureTitle.BackgroundTransparency = 1
+FeatureTitle.Font = Enum.Font.GothamBold
+FeatureTitle.Text = "🔍 VIREX - FINDER"
+FeatureTitle.TextColor3 = Color3.fromRGB(100, 220, 140)
+FeatureTitle.TextSize = 10
+FeatureTitle.TextXAlignment = Enum.TextXAlignment.Left
+
+local FeatureSub = Instance.new("TextLabel")
+FeatureSub.Parent = FeatureCard
+FeatureSub.Position = UDim2.new(0, 10, 0, 21)
+FeatureSub.Size = UDim2.new(0, 220, 0, 14)
+FeatureSub.BackgroundTransparency = 1
+FeatureSub.Font = Enum.Font.Gotham
+FeatureSub.Text = "Tính năng nổi bật nhất của bản V11"
+FeatureSub.TextColor3 = Color3.fromRGB(150, 150, 165)
+FeatureSub.TextSize = 9
+FeatureSub.TextXAlignment = Enum.TextXAlignment.Left
+
+local FeatureBadge = Instance.new("TextLabel")
+FeatureBadge.Parent = FeatureCard
+FeatureBadge.Position = UDim2.new(1, -112, 0.5, -11)
+FeatureBadge.Size = UDim2.new(0, 104, 0, 22)
+FeatureBadge.BackgroundColor3 = Color3.fromRGB(24, 45, 32)
+FeatureBadge.Font = Enum.Font.GothamBold
+FeatureBadge.Text = "✓ TỈ LỆ CHUẨN CAO"
+FeatureBadge.TextColor3 = Color3.fromRGB(90, 220, 130)
+FeatureBadge.TextSize = 8
+Instance.new("UICorner", FeatureBadge).CornerRadius = UDim.new(0, 6)
 
 -- ==================== CHỌN HUB ====================
 local Sec2Title = Instance.new("TextLabel")
 Sec2Title.Parent = MainFrame
-Sec2Title.Position = UDim2.new(0, 12, 0, 100)
+Sec2Title.Position = UDim2.new(0, 12, 0, 146)
 Sec2Title.Size = UDim2.new(0, 150, 0, 18)
 Sec2Title.BackgroundTransparency = 1
 Sec2Title.Font = Enum.Font.GothamBold
@@ -170,7 +213,7 @@ Sec2Title.TextXAlignment = Enum.TextXAlignment.Left
 
 local SoundBtn = Instance.new("TextButton")
 SoundBtn.Parent = MainFrame
-SoundBtn.Position = UDim2.new(1, -128, 0, 97)
+SoundBtn.Position = UDim2.new(1, -128, 0, 143)
 SoundBtn.Size = UDim2.new(0, 116, 0, 22)
 SoundBtn.BackgroundColor3 = Color3.fromRGB(28, 120, 68)
 SoundBtn.Font = Enum.Font.GothamBold
@@ -188,7 +231,7 @@ end)
 -- Container 2 nút chọn menu
 local HubContainer = Instance.new("Frame")
 HubContainer.Parent = MainFrame
-HubContainer.Position = UDim2.new(0, 12, 0, 123)
+HubContainer.Position = UDim2.new(0, 12, 0, 169)
 HubContainer.Size = UDim2.new(1, -24, 0, 84)
 HubContainer.BackgroundTransparency = 1
 
@@ -253,7 +296,7 @@ local function CreateHubCard(name, pos, icon, title, subtitle)
 	return Card
 end
 
-local ChilliCard = CreateHubCard("ChilliCard", UDim2.new(0, 0, 0, 0), "🔥", "Chilli VIP", "Hub 1")
+local ChilliCard = CreateHubCard("ChilliCard", UDim2.new(0, 0, 0, 0), "🔥", "Chilli VIP", "Hub 1 - VIP")
 local VenyxCard = CreateHubCard("VenyxCard", UDim2.new(0.515, 0, 0, 0), "⚡", "Venyx", "Hub 2")
 
 local function UpdateHubSelection()
@@ -270,7 +313,7 @@ local function UpdateHubSelection()
 		VenyxCard.Stroke.Thickness = 1.2
 		VenyxCard.StatusPill.BackgroundColor3 = Color3.fromRGB(38, 38, 46)
 		VenyxCard.StatusPill.TextColor3 = Color3.fromRGB(180, 180, 190)
-		VenyxCard.StatusPill.Text = "Chọn"
+		VenyxCard.StatusPill.Text = "Nhấn để chọn"
 	else
 		VenyxCard.BackgroundColor3 = Color3.fromRGB(32, 30, 68)
 		VenyxCard.Stroke.Color = Color3.fromRGB(255, 255, 255)
@@ -284,7 +327,7 @@ local function UpdateHubSelection()
 		ChilliCard.Stroke.Thickness = 1.2
 		ChilliCard.StatusPill.BackgroundColor3 = Color3.fromRGB(38, 38, 46)
 		ChilliCard.StatusPill.TextColor3 = Color3.fromRGB(180, 180, 190)
-		ChilliCard.StatusPill.Text = "Chọn"
+		ChilliCard.StatusPill.Text = "Nhấn để chọn"
 	end
 end
 
@@ -303,7 +346,7 @@ UpdateHubSelection()
 -- ==================== FPS BOOST CARD ====================
 local FpsCard = Instance.new("Frame")
 FpsCard.Parent = MainFrame
-FpsCard.Position = UDim2.new(0, 12, 0, 215)
+FpsCard.Position = UDim2.new(0, 12, 0, 261)
 FpsCard.Size = UDim2.new(1, -24, 0, 38)
 FpsCard.BackgroundColor3 = Color3.fromRGB(24, 25, 32)
 Instance.new("UICorner", FpsCard).CornerRadius = UDim.new(0, 8)
@@ -314,7 +357,7 @@ FpsTitle.Position = UDim2.new(0, 10, 0, 4)
 FpsTitle.Size = UDim2.new(0, 200, 0, 15)
 FpsTitle.BackgroundTransparency = 1
 FpsTitle.Font = Enum.Font.GothamBold
-FpsTitle.Text = "🌙 Fix Lag / Tối ưu FPS"
+FpsTitle.Text = "🌙 FPS Boost"
 FpsTitle.TextColor3 = Color3.fromRGB(240, 240, 250)
 FpsTitle.TextSize = 11
 FpsTitle.TextXAlignment = Enum.TextXAlignment.Left
@@ -325,7 +368,7 @@ FpsSub.Position = UDim2.new(0, 10, 0, 20)
 FpsSub.Size = UDim2.new(0, 220, 0, 14)
 FpsSub.BackgroundTransparency = 1
 FpsSub.Font = Enum.Font.Gotham
-FpsSub.Text = "Tắt hiệu ứng nặng, chống giật lag"
+FpsSub.Text = "Giảm hiệu ứng, mượt hơn"
 FpsSub.TextColor3 = Color3.fromRGB(150, 150, 165)
 FpsSub.TextSize = 9
 FpsSub.TextXAlignment = Enum.TextXAlignment.Left
@@ -350,7 +393,7 @@ end)
 -- ==================== DISCORD CARD ====================
 local DiscordCard = Instance.new("Frame")
 DiscordCard.Parent = MainFrame
-DiscordCard.Position = UDim2.new(0, 12, 0, 259)
+DiscordCard.Position = UDim2.new(0, 12, 0, 305)
 DiscordCard.Size = UDim2.new(1, -24, 0, 38)
 DiscordCard.BackgroundColor3 = Color3.fromRGB(26, 26, 46)
 local DiscordStroke = Instance.new("UIStroke", DiscordCard)
@@ -402,8 +445,8 @@ end)
 -- ==================== NÚT CHẠY SCRIPT ====================
 local RunBtn = Instance.new("TextButton")
 RunBtn.Parent = MainFrame
-RunBtn.Position = UDim2.new(0, 12, 1, -34)
-RunBtn.Size = UDim2.new(1, -24, 0, 28)
+RunBtn.Position = UDim2.new(0, 12, 1, -38)
+RunBtn.Size = UDim2.new(1, -24, 0, 30)
 RunBtn.BackgroundColor3 = Color3.fromRGB(255, 105, 35)
 RunBtn.Font = Enum.Font.GothamBold
 RunBtn.Text = "🚀 CHẠY SCRIPT"
@@ -417,11 +460,9 @@ RunBtn.MouseButton1Click:Connect(function()
 	-- Tối ưu hóa Fix Lag tối đa khi người dùng bật
 	if FpsBoostEnabled then
 		pcall(function()
-			-- Giảm cấu hình đồ họa chung của Roblox
 			settings().Rendering.QualityLevel = Enum.QualityLevel.Level01
 			UserSettings():GetService("UserGameSettings").SavedQualityLevel = Enum.SavedQualitySetting.Level1
 			
-			-- Tắt hiệu ứng đổ bóng và ánh sáng nặng
 			Lighting.GlobalShadows = false
 			Lighting.Brightness = 1
 			for _, v in pairs(Lighting:GetChildren()) do
@@ -430,7 +471,6 @@ RunBtn.MouseButton1Click:Connect(function()
 				end
 			end
 			
-			-- Giảm tải hiệu ứng nước và các vật thể trong workspace
 			if Workspace:FindFirstChildOfClass("Terrain") then
 				Workspace.Terrain.WaterWaveSize = 0
 				Workspace.Terrain.WaterWaveSpeed = 0
