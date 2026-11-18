@@ -1,4 +1,4 @@
--- Gui to Lua (Hirose - CHILLI x VENYX Loader Size 300 & Solid Image BG)
+-- Gui to Lua (Hirose - CHILLI x VENYX Loader Size 300 & Fixed Image BG)
 local CoreGui = game:GetService("CoreGui")
 local TweenService = game:GetService("TweenService")
 local UserInputService = game:GetService("UserInputService")
@@ -59,8 +59,8 @@ MainFrame.Parent = ScreenGui
 MainFrame.AnchorPoint = Vector2.new(0.5, 0.5)
 MainFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
 MainFrame.Size = UDim2.new(0, 300, 0, 410)
-MainFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-MainFrame.BackgroundTransparency = 0 -- Không trong suốt
+MainFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 25)
+MainFrame.BackgroundTransparency = 0
 MainFrame.BorderSizePixel = 0
 MainFrame.ClipsDescendants = true
 
@@ -69,11 +69,11 @@ MainCorner.CornerRadius = UDim.new(0, 12)
 MainCorner.Parent = MainFrame
 
 local MainStroke = Instance.new("UIStroke")
-MainStroke.Color = Color3.fromRGB(45, 45, 55)
-MainStroke.Thickness = 1.2
+MainStroke.Color = Color3.fromRGB(70, 70, 85)
+MainStroke.Thickness = 1.5
 MainStroke.Parent = MainFrame
 
--- Hình nền Roblox đặc (Phủ kín toàn bộ khung)
+-- Hình nền Roblox (Dùng Stretch để hiển thị chuẩn xác không bị đen)
 local BgImage = Instance.new("ImageLabel")
 BgImage.Parent = MainFrame
 BgImage.Size = UDim2.new(1, 0, 1, 0)
@@ -131,7 +131,7 @@ local VersionBadge = Instance.new("TextLabel")
 VersionBadge.Parent = TopBar
 VersionBadge.Position = UDim2.new(1, -86, 0.5, -9)
 VersionBadge.Size = UDim2.new(0, 48, 0, 18)
-VersionBadge.BackgroundColor3 = Color3.fromRGB(45, 28, 18)
+VersionBadge.BackgroundColor3 = Color3.fromRGB(50, 30, 20)
 VersionBadge.Font = Enum.Font.GothamBold
 VersionBadge.Text = "v11.0"
 VersionBadge.TextColor3 = Color3.fromRGB(255, 140, 50)
@@ -143,10 +143,10 @@ local CloseBtn = Instance.new("TextButton")
 CloseBtn.Parent = TopBar
 CloseBtn.Position = UDim2.new(1, -30, 0.5, -10)
 CloseBtn.Size = UDim2.new(0, 20, 0, 20)
-CloseBtn.BackgroundColor3 = Color3.fromRGB(32, 32, 38)
+CloseBtn.BackgroundColor3 = Color3.fromRGB(40, 40, 48)
 CloseBtn.Font = Enum.Font.GothamBold
 CloseBtn.Text = "X"
-CloseBtn.TextColor3 = Color3.fromRGB(200, 200, 210)
+CloseBtn.TextColor3 = Color3.fromRGB(220, 220, 230)
 CloseBtn.TextSize = 10
 CloseBtn.ZIndex = 2
 Instance.new("UICorner", CloseBtn).CornerRadius = UDim.new(0, 5)
@@ -159,19 +159,18 @@ local ProfileCard = Instance.new("Frame")
 ProfileCard.Parent = MainFrame
 ProfileCard.Position = UDim2.new(0, 8, 0, 38)
 ProfileCard.Size = UDim2.new(1, -16, 0, 56)
-ProfileCard.BackgroundColor3 = Color3.fromRGB(20, 10, 12)
-ProfileCard.BackgroundTransparency = 0.3
+ProfileCard.BackgroundColor3 = Color3.fromRGB(25, 12, 14)
+ProfileCard.BackgroundTransparency = 0.4
 ProfileCard.ZIndex = 2
 local ProfileStroke = Instance.new("UIStroke", ProfileCard)
-ProfileStroke.Color = Color3.fromRGB(95, 35, 35)
+ProfileStroke.Color = Color3.fromRGB(120, 45, 45)
 Instance.new("UICorner", ProfileCard).CornerRadius = UDim.new(0, 8)
 
 local IconBox = Instance.new("TextLabel")
 IconBox.Parent = ProfileCard
 IconBox.Position = UDim2.new(0, 8, 0.5, -16)
 IconBox.Size = UDim2.new(0, 32, 0, 32)
-IconBox.BackgroundColor3 = Color3.fromRGB(55, 22, 24)
-IconBox.BackgroundTransparency = 0.2
+IconBox.BackgroundColor3 = Color3.fromRGB(60, 25, 28)
 IconBox.Text = "🌶️"
 IconBox.TextSize = 18
 IconBox.ZIndex = 2
@@ -196,7 +195,7 @@ SubLabel.Size = UDim2.new(1, -54, 0, 14)
 SubLabel.BackgroundTransparency = 1
 SubLabel.Font = Enum.Font.Gotham
 SubLabel.Text = "Finder Free chuẩn cao · Giảm lag ⚡"
-SubLabel.TextColor3 = Color3.fromRGB(190, 190, 200)
+SubLabel.TextColor3 = Color3.fromRGB(210, 210, 220)
 SubLabel.TextSize = 9
 SubLabel.TextXAlignment = Enum.TextXAlignment.Left
 SubLabel.ZIndex = 2
@@ -208,7 +207,7 @@ StatusLabel.Size = UDim2.new(1, -54, 0, 14)
 StatusLabel.BackgroundTransparency = 1
 StatusLabel.Font = Enum.Font.GothamMedium
 StatusLabel.Text = "● Sẵn sàng · Delta"
-StatusLabel.TextColor3 = Color3.fromRGB(80, 220, 120)
+StatusLabel.TextColor3 = Color3.fromRGB(90, 240, 140)
 StatusLabel.TextSize = 9
 StatusLabel.TextXAlignment = Enum.TextXAlignment.Left
 StatusLabel.ZIndex = 2
@@ -218,11 +217,11 @@ local VirexCard = Instance.new("Frame")
 VirexCard.Parent = MainFrame
 VirexCard.Position = UDim2.new(0, 8, 0, 100)
 VirexCard.Size = UDim2.new(1, -16, 0, 38)
-VirexCard.BackgroundColor3 = Color3.fromRGB(10, 25, 20)
-VirexCard.BackgroundTransparency = 0.3
+VirexCard.BackgroundColor3 = Color3.fromRGB(12, 35, 26)
+VirexCard.BackgroundTransparency = 0.4
 VirexCard.ZIndex = 2
 local VirexStroke = Instance.new("UIStroke", VirexCard)
-VirexStroke.Color = Color3.fromRGB(35, 95, 70)
+VirexStroke.Color = Color3.fromRGB(40, 110, 80)
 Instance.new("UICorner", VirexCard).CornerRadius = UDim.new(0, 8)
 
 local VirexName = Instance.new("TextLabel")
@@ -232,7 +231,7 @@ VirexName.Size = UDim2.new(0, 150, 0, 14)
 VirexName.BackgroundTransparency = 1
 VirexName.Font = Enum.Font.GothamBold
 VirexName.Text = "🔍 VIREX - FINDER"
-VirexName.TextColor3 = Color3.fromRGB(90, 240, 165)
+VirexName.TextColor3 = Color3.fromRGB(100, 255, 180)
 VirexName.TextSize = 10
 VirexName.TextXAlignment = Enum.TextXAlignment.Left
 VirexName.ZIndex = 2
@@ -244,7 +243,7 @@ VirexDesc.Size = UDim2.new(0, 150, 0, 14)
 VirexDesc.BackgroundTransparency = 1
 VirexDesc.Font = Enum.Font.Gotham
 VirexDesc.Text = "Tính năng nổi bật V11"
-VirexDesc.TextColor3 = Color3.fromRGB(165, 195, 180)
+VirexDesc.TextColor3 = Color3.fromRGB(180, 210, 195)
 VirexDesc.TextSize = 8
 VirexDesc.TextXAlignment = Enum.TextXAlignment.Left
 VirexDesc.ZIndex = 2
@@ -253,10 +252,10 @@ local RateBadge = Instance.new("TextLabel")
 RateBadge.Parent = VirexCard
 RateBadge.Position = UDim2.new(1, -100, 0.5, -10)
 RateBadge.Size = UDim2.new(0, 92, 0, 20)
-RateBadge.BackgroundColor3 = Color3.fromRGB(26, 68, 52)
+RateBadge.BackgroundColor3 = Color3.fromRGB(30, 80, 60)
 RateBadge.Font = Enum.Font.GothamBold
 RateBadge.Text = "✨ CHUẨN CAO"
-RateBadge.TextColor3 = Color3.fromRGB(110, 245, 175)
+RateBadge.TextColor3 = Color3.fromRGB(120, 255, 190)
 RateBadge.TextSize = 8
 RateBadge.ZIndex = 2
 Instance.new("UICorner", RateBadge).CornerRadius = UDim.new(1, 0)
@@ -269,7 +268,7 @@ Sec2Title.Size = UDim2.new(0, 90, 0, 18)
 Sec2Title.BackgroundTransparency = 1
 Sec2Title.Font = Enum.Font.GothamBold
 Sec2Title.Text = "🎮 CHỌN HUB"
-Sec2Title.TextColor3 = Color3.fromRGB(220, 220, 230)
+Sec2Title.TextColor3 = Color3.fromRGB(240, 240, 250)
 Sec2Title.TextSize = 10
 Sec2Title.TextXAlignment = Enum.TextXAlignment.Left
 Sec2Title.ZIndex = 2
@@ -278,7 +277,7 @@ local SoundBtn = Instance.new("TextButton")
 SoundBtn.Parent = MainFrame
 SoundBtn.Position = UDim2.new(1, -110, 0, 143)
 SoundBtn.Size = UDim2.new(0, 102, 0, 18)
-SoundBtn.BackgroundColor3 = Color3.fromRGB(28, 120, 68)
+SoundBtn.BackgroundColor3 = Color3.fromRGB(32, 140, 78)
 SoundBtn.Font = Enum.Font.GothamBold
 SoundBtn.Text = "🔊 ÂM THANH: BẬT"
 SoundBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -289,7 +288,7 @@ Instance.new("UICorner", SoundBtn).CornerRadius = UDim.new(1, 0)
 SoundBtn.MouseButton1Click:Connect(function()
 	SoundEnabled = not SoundEnabled
 	SoundBtn.Text = SoundEnabled and "🔊 ÂM THANH: BẬT" or "🔇 ÂM THANH: TẮT"
-	SoundBtn.BackgroundColor3 = SoundEnabled and Color3.fromRGB(28, 120, 68) or Color3.fromRGB(55, 55, 65)
+	SoundBtn.BackgroundColor3 = SoundEnabled and Color3.fromRGB(32, 140, 78) or Color3.fromRGB(60, 60, 70)
 end)
 
 -- Container 2 nút chọn menu
@@ -306,8 +305,8 @@ local function CreateHubCard(name, pos, icon, title, subtitle)
 	Card.Parent = HubContainer
 	Card.Position = pos
 	Card.Size = UDim2.new(0.485, 0, 1, 0)
-	Card.BackgroundColor3 = Color3.fromRGB(16, 16, 22)
-	Card.BackgroundTransparency = 0.3
+	Card.BackgroundColor3 = Color3.fromRGB(25, 25, 32)
+	Card.BackgroundTransparency = 0.4
 	Card.Text = ""
 	Card.AutoButtonColor = false
 	Card.ZIndex = 2
@@ -315,7 +314,7 @@ local function CreateHubCard(name, pos, icon, title, subtitle)
 
 	local Stroke = Instance.new("UIStroke", Card)
 	Stroke.Name = "Stroke"
-	Stroke.Color = Color3.fromRGB(50, 50, 60)
+	Stroke.Color = Color3.fromRGB(70, 70, 85)
 	Stroke.Thickness = 1.2
 
 	local Icon = Instance.new("TextLabel")
@@ -346,7 +345,7 @@ local function CreateHubCard(name, pos, icon, title, subtitle)
 	Sub.BackgroundTransparency = 1
 	Sub.Font = Enum.Font.Gotham
 	Sub.Text = subtitle
-	Sub.TextColor3 = Color3.fromRGB(160, 160, 175)
+	Sub.TextColor3 = Color3.fromRGB(190, 190, 205)
 	Sub.TextSize = 9
 	Sub.TextXAlignment = Enum.TextXAlignment.Left
 	Sub.ZIndex = 2
@@ -356,10 +355,10 @@ local function CreateHubCard(name, pos, icon, title, subtitle)
 	StatusPill.Parent = Card
 	StatusPill.Position = UDim2.new(0, 6, 1, -26)
 	StatusPill.Size = UDim2.new(1, -12, 0, 20)
-	StatusPill.BackgroundColor3 = Color3.fromRGB(28, 28, 36)
+	StatusPill.BackgroundColor3 = Color3.fromRGB(45, 45, 55)
 	StatusPill.Font = Enum.Font.GothamBold
 	StatusPill.Text = "Chọn"
-	StatusPill.TextColor3 = Color3.fromRGB(180, 180, 190)
+	StatusPill.TextColor3 = Color3.fromRGB(220, 220, 230)
 	StatusPill.TextSize = 9
 	StatusPill.ZIndex = 2
 	Instance.new("UICorner", StatusPill).CornerRadius = UDim.new(0, 5)
@@ -372,32 +371,32 @@ local VenyxCard = CreateHubCard("VenyxCard", UDim2.new(0.515, 0, 0, 0), "⚡", "
 
 local function UpdateHubSelection()
 	if SelectedHub == "Chilli" then
-		ChilliCard.BackgroundColor3 = Color3.fromRGB(68, 28, 22)
+		ChilliCard.BackgroundColor3 = Color3.fromRGB(75, 30, 22)
 		ChilliCard.Stroke.Color = Color3.fromRGB(255, 255, 255)
 		ChilliCard.Stroke.Thickness = 1.5
-		ChilliCard.StatusPill.BackgroundColor3 = Color3.fromRGB(235, 95, 50)
+		ChilliCard.StatusPill.BackgroundColor3 = Color3.fromRGB(245, 100, 50)
 		ChilliCard.StatusPill.TextColor3 = Color3.fromRGB(255, 255, 255)
 		ChilliCard.StatusPill.Text = "✓ CHỌN"
 
-		VenyxCard.BackgroundColor3 = Color3.fromRGB(16, 16, 22)
-		VenyxCard.Stroke.Color = Color3.fromRGB(50, 50, 60)
+		VenyxCard.BackgroundColor3 = Color3.fromRGB(25, 25, 32)
+		VenyxCard.Stroke.Color = Color3.fromRGB(70, 70, 85)
 		VenyxCard.Stroke.Thickness = 1.2
-		VenyxCard.StatusPill.BackgroundColor3 = Color3.fromRGB(28, 28, 36)
-		VenyxCard.StatusPill.TextColor3 = Color3.fromRGB(180, 180, 190)
+		VenyxCard.StatusPill.BackgroundColor3 = Color3.fromRGB(45, 45, 55)
+		VenyxCard.StatusPill.TextColor3 = Color3.fromRGB(220, 220, 230)
 		VenyxCard.StatusPill.Text = "Chọn"
 	else
-		VenyxCard.BackgroundColor3 = Color3.fromRGB(32, 30, 68)
+		VenyxCard.BackgroundColor3 = Color3.fromRGB(38, 35, 78)
 		VenyxCard.Stroke.Color = Color3.fromRGB(255, 255, 255)
 		VenyxCard.Stroke.Thickness = 1.5
-		VenyxCard.StatusPill.BackgroundColor3 = Color3.fromRGB(95, 90, 235)
+		VenyxCard.StatusPill.BackgroundColor3 = Color3.fromRGB(110, 100, 255)
 		VenyxCard.StatusPill.TextColor3 = Color3.fromRGB(255, 255, 255)
 		VenyxCard.StatusPill.Text = "✓ CHỌN"
 
-		ChilliCard.BackgroundColor3 = Color3.fromRGB(16, 16, 22)
-		ChilliCard.Stroke.Color = Color3.fromRGB(50, 50, 60)
+		ChilliCard.BackgroundColor3 = Color3.fromRGB(25, 25, 32)
+		ChilliCard.Stroke.Color = Color3.fromRGB(70, 70, 85)
 		ChilliCard.Stroke.Thickness = 1.2
-		ChilliCard.StatusPill.BackgroundColor3 = Color3.fromRGB(28, 28, 36)
-		ChilliCard.StatusPill.TextColor3 = Color3.fromRGB(180, 180, 190)
+		ChilliCard.StatusPill.BackgroundColor3 = Color3.fromRGB(45, 45, 55)
+		ChilliCard.StatusPill.TextColor3 = Color3.fromRGB(220, 220, 230)
 		ChilliCard.StatusPill.Text = "Chọn"
 	end
 end
@@ -419,8 +418,8 @@ local FpsCard = Instance.new("Frame")
 FpsCard.Parent = MainFrame
 FpsCard.Position = UDim2.new(0, 8, 0, 250)
 FpsCard.Size = UDim2.new(1, -16, 0, 36)
-FpsCard.BackgroundColor3 = Color3.fromRGB(16, 20, 25)
-FpsCard.BackgroundTransparency = 0.3
+FpsCard.BackgroundColor3 = Color3.fromRGB(20, 28, 35)
+FpsCard.BackgroundTransparency = 0.4
 FpsCard.ZIndex = 2
 Instance.new("UICorner", FpsCard).CornerRadius = UDim.new(0, 8)
 
@@ -443,7 +442,7 @@ FpsSub.Size = UDim2.new(0, 180, 0, 14)
 FpsSub.BackgroundTransparency = 1
 FpsSub.Font = Enum.Font.Gotham
 FpsSub.Text = "Tối ưu hóa game cực mượt"
-FpsSub.TextColor3 = Color3.fromRGB(150, 150, 165)
+FpsSub.TextColor3 = Color3.fromRGB(180, 180, 195)
 FpsSub.TextSize = 8
 FpsSub.TextXAlignment = Enum.TextXAlignment.Left
 FpsSub.ZIndex = 2
@@ -452,7 +451,7 @@ local FpsBtn = Instance.new("TextButton")
 FpsBtn.Parent = FpsCard
 FpsBtn.Position = UDim2.new(1, -52, 0.5, -10)
 FpsBtn.Size = UDim2.new(0, 44, 0, 20)
-FpsBtn.BackgroundColor3 = Color3.fromRGB(28, 135, 75)
+FpsBtn.BackgroundColor3 = Color3.fromRGB(32, 150, 85)
 FpsBtn.Font = Enum.Font.GothamBold
 FpsBtn.Text = "BẬT"
 FpsBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -463,7 +462,7 @@ Instance.new("UICorner", FpsBtn).CornerRadius = UDim.new(1, 0)
 FpsBtn.MouseButton1Click:Connect(function()
 	FpsBoostEnabled = not FpsBoostEnabled
 	FpsBtn.Text = FpsBoostEnabled and "BẬT" or "TẮT"
-	FpsBtn.BackgroundColor3 = FpsBoostEnabled and Color3.fromRGB(28, 135, 75) or Color3.fromRGB(55, 55, 65)
+	FpsBtn.BackgroundColor3 = FpsBoostEnabled and Color3.fromRGB(32, 150, 85) or Color3.fromRGB(60, 60, 70)
 end)
 
 -- ==================== DISCORD CARD ====================
@@ -471,11 +470,11 @@ local DiscordCard = Instance.new("Frame")
 DiscordCard.Parent = MainFrame
 DiscordCard.Position = UDim2.new(0, 8, 0, 290)
 DiscordCard.Size = UDim2.new(1, -16, 0, 36)
-DiscordCard.BackgroundColor3 = Color3.fromRGB(18, 18, 32)
-DiscordCard.BackgroundTransparency = 0.3
+DiscordCard.BackgroundColor3 = Color3.fromRGB(25, 25, 45)
+DiscordCard.BackgroundTransparency = 0.4
 DiscordCard.ZIndex = 2
 local DiscordStroke = Instance.new("UIStroke", DiscordCard)
-DiscordStroke.Color = Color3.fromRGB(65, 65, 130)
+DiscordStroke.Color = Color3.fromRGB(80, 80, 150)
 Instance.new("UICorner", DiscordCard).CornerRadius = UDim.new(0, 8)
 
 local DiscordTitle = Instance.new("TextLabel")
@@ -485,7 +484,7 @@ DiscordTitle.Size = UDim2.new(0, 150, 0, 14)
 DiscordTitle.BackgroundTransparency = 1
 DiscordTitle.Font = Enum.Font.GothamBold
 DiscordTitle.Text = "💬 DISCORD"
-DiscordTitle.TextColor3 = Color3.fromRGB(135, 145, 255)
+DiscordTitle.TextColor3 = Color3.fromRGB(160, 170, 255)
 DiscordTitle.TextSize = 9
 DiscordTitle.TextXAlignment = Enum.TextXAlignment.Left
 DiscordTitle.ZIndex = 2
@@ -497,7 +496,7 @@ DiscordLinkText.Size = UDim2.new(0, 170, 0, 14)
 DiscordLinkText.BackgroundTransparency = 1
 DiscordLinkText.Font = Enum.Font.Gotham
 DiscordLinkText.Text = DISCORD_LINK
-DiscordLinkText.TextColor3 = Color3.fromRGB(220, 225, 255)
+DiscordLinkText.TextColor3 = Color3.fromRGB(230, 235, 255)
 DiscordLinkText.TextSize = 9
 DiscordLinkText.TextXAlignment = Enum.TextXAlignment.Left
 DiscordLinkText.ZIndex = 2
