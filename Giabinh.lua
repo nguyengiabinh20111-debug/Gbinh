@@ -53,7 +53,7 @@ ScreenGui.Parent = CoreGui
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 ScreenGui.ResetOnSpawn = false
 
--- Khung chính (Tăng chiều cao lên 480 để chứa 3 nút Hub)
+-- Khung chính
 local MainFrame = Instance.new("Frame")
 MainFrame.Name = "MainFrame"
 MainFrame.Parent = ScreenGui
@@ -122,7 +122,7 @@ TitleLabel.Position = UDim2.new(0, 10, 0, 0)
 TitleLabel.Size = UDim2.new(0, 160, 1, 0)
 TitleLabel.BackgroundTransparency = 1
 TitleLabel.Font = Enum.Font.GothamBold
-TitleLabel.Text = "🌶️ CHILLI x VENYX"
+TitleLabel.Text = "🌶️ CHILLI & VENYX" -- Đã đổi X thành &
 TitleLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
 TitleLabel.TextSize = 13
 TitleLabel.TextXAlignment = Enum.TextXAlignment.Left
@@ -155,7 +155,7 @@ CloseBtn.MouseButton1Click:Connect(function()
 	ScreenGui:Destroy()
 end)
 
--- Profile Card (Tự thay đổi theo Hub đang chọn)
+-- Profile Card
 local ProfileCard = Instance.new("Frame")
 ProfileCard.Parent = MainFrame
 ProfileCard.Position = UDim2.new(0, 8, 0, 38)
@@ -183,7 +183,7 @@ NameLabel.Position = UDim2.new(0, 46, 0, 6)
 NameLabel.Size = UDim2.new(1, -54, 0, 15)
 NameLabel.BackgroundTransparency = 1
 NameLabel.Font = Enum.Font.GothamBold
-NameLabel.Text = "Chilli x Venyx V11 Max"
+NameLabel.Text = "Chilli & Venyx V11 Max" -- Đã đổi X thành &
 NameLabel.TextColor3 = Color3.fromRGB(255, 190, 120)
 NameLabel.TextSize = 12
 NameLabel.TextXAlignment = Enum.TextXAlignment.Left
@@ -291,7 +291,7 @@ SoundBtn.MouseButton1Click:Connect(function()
 	SoundBtn.BackgroundColor3 = SoundEnabled and Color3.fromRGB(32, 140, 78) or Color3.fromRGB(60, 60, 70)
 end)
 
--- Container 3 nút chọn Hub (Chilli, Venyx, Divine chia đều 3 cột)
+-- Container 3 nút chọn Hub
 local HubContainer = Instance.new("Frame")
 HubContainer.Parent = MainFrame
 HubContainer.Position = UDim2.new(0, 8, 0, 166)
@@ -373,7 +373,7 @@ local function UpdateHubSelection()
 		DivineCard.StatusPill.TextColor3 = Color3.fromRGB(220, 220, 230)
 		DivineCard.StatusPill.Text = "Chọn"
 
-		NameLabel.Text = "Chilli x Venyx V11 Max"
+		NameLabel.Text = "Chilli & Venyx V11 Max" -- Đã đổi X thành &
 		SubLabel.Text = "● Sẵn sàng (Chilli VIP)"
 		StatusLabel.Text = "⚡ FPS | CM40 | Chilli VIP | V11 Max"
 
