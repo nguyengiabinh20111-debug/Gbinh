@@ -78,7 +78,7 @@ local BgImage = Instance.new("ImageLabel")
 BgImage.Parent = MainFrame
 BgImage.Size = UDim2.new(1, 0, 1, 0)
 BgImage.BackgroundTransparency = 1
-BgImage.Image = "rbxassetid://79121294509198"
+BgImage.Image = "rbxassetid://139482010748688"
 BgImage.ScaleType = Enum.ScaleType.Stretch
 BgImage.ZIndex = 0
 
