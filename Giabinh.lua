@@ -86,7 +86,7 @@ BgImage.Image = "rbxassetid://139482010748688"
 BgImage.ScaleType = Enum.ScaleType.Stretch
 BgImage.ZIndex = 0
 
--- Kéo thả cửa sổ
+-- Kéo thả cửa sổ Loader chính
 local dragging, dragInput, dragStart, startPos
 MainFrame.InputBegan:Connect(function(input)
 	if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
@@ -158,7 +158,7 @@ CloseBtn.MouseButton1Click:Connect(function()
 	ScreenGui:Destroy()
 end)
 
--- Profile Card (Tác giả: Hirose to rõ bên cạnh trái ớt)
+-- Profile Card
 local ProfileCard = Instance.new("Frame")
 ProfileCard.Parent = MainFrame
 ProfileCard.Position = UDim2.new(0, 8, 0, 38)
@@ -591,7 +591,7 @@ WishLabel.TextColor3 = Color3.fromRGB(255, 225, 80)
 WishLabel.TextSize = 10
 WishLabel.ZIndex = 3
 
--- Nút Chạy Script (Tự động bật thẻ thông báo chính giữa màn hình game)
+-- Nút Chạy Script (Tự động bật thẻ thông báo giữa màn hình: Kéo thả được & Bấm để copy link Discord + có tên Hirose)
 local RunBtn = Instance.new("TextButton")
 RunBtn.Parent = MainFrame
 RunBtn.Position = UDim2.new(0, 8, 1, -36)
@@ -611,45 +611,82 @@ RunBtn.MouseButton1Click:Connect(function()
 		ApplyFixLag()
 	end
 
-	-- Lấy thông tin Hub đang chọn để hiển thị thẻ giữa màn hình
 	local hubTitleText = "Chilli & Venyx & Divine V11 Max"
-	local subTitleText = "● Sẵn sàng (Chilli VIP)"
-	local statusDetailText = "⚡ FPS | CM40 | Chilli VIP | V11 Max"
+	local subTitleText = "👤 Tác giả: Hirose | 💬 Bấm copy link"
+	local statusDetailText = "discord.gg/uqhEpzXy9q"
 	local iconSymbol = "🔥"
 	
 	if SelectedHub == "Venyx" then
 		hubTitleText = "Venyx Hub V11 Max"
-		subTitleText = "● Sẵn sàng (Venyx Hub 2)"
-		statusDetailText = "⚡ FPS | CM40 | Venyx Hub | V11 Max"
+		subTitleText = "👤 Tác giả: Hirose | 💬 Bấm copy link"
+		statusDetailText = "discord.gg/uqhEpzXy9q"
 		iconSymbol = "⚡"
 	elseif SelectedHub == "Divine" then
 		hubTitleText = "Divine Hub (Aquavine)"
-		subTitleText = "● Sẵn sàng (Aquavine Divine)"
-		statusDetailText = "⚡ FPS | CM40 | Divine Hub | V11 Max"
+		subTitleText = "👤 Tác giả: Hirose | 💬 Bấm copy link"
+		statusDetailText = "discord.gg/uqhEpzXy9q"
 		iconSymbol = "💎"
 	end
 
-	-- Tạo thẻ thông báo bám chính giữa màn hình game
+	-- Tạo thẻ thông báo bám giữa màn hình dạng TextButton để bấm sao chép link được
 	local ActiveGui = Instance.new("ScreenGui")
 	ActiveGui.Name = "ActiveHubNotification"
 	ActiveGui.Parent = CoreGui
 	ActiveGui.ResetOnSpawn = false
 
-	local NotifFrame = Instance.new("Frame")
+	local NotifFrame = Instance.new("TextButton") -- Dùng TextButton để có thể bấm vào sao chép link
 	NotifFrame.Parent = ActiveGui
 	NotifFrame.AnchorPoint = Vector2.new(0.5, 0.5)
 	NotifFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
-	NotifFrame.Size = UDim2.new(0, 250, 0, 60)
+	NotifFrame.Size = UDim2.new(0, 270, 0, 62)
 	NotifFrame.BackgroundColor3 = Color3.fromRGB(16, 16, 22)
 	NotifFrame.BackgroundTransparency = 0.2
+	NotifFrame.AutoButtonColor = false
+	NotifFrame.Text = ""
 	NotifFrame.BorderSizePixel = 0
 
 	local NotifCorner = Instance.new("UICorner", NotifFrame)
 	NotifCorner.CornerRadius = UDim.new(1, 0)
 
 	local NotifStroke = Instance.new("UIStroke", NotifFrame)
-	NotifStroke.Color = Color3.fromRGB(60, 60, 80)
+	NotifStroke.Color = Color3.fromRGB(88, 101, 242)
 	NotifStroke.Thickness = 1.5
+
+	-- Tính năng KÉO THẢ (Drag) cho thẻ thông báo ở giữa màn hình
+	local nDragging, nDragStart, nStartPos
+	NotifFrame.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			nDragging = true
+			nDragStart = input.Position
+			nStartPos = NotifFrame.Position
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					nDragging = false
+				end
+			end)
+		end
+	end)
+	NotifFrame.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+			-- Chỉ kéo thả khi di chuyển
+		end
+	end)
+	UserInputService.InputChanged:Connect(function(input)
+		if nDragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
+			local delta = input.Position - nDragStart
+			NotifFrame.Position = UDim2.new(nStartPos.X.Scale, nStartPos.X.Offset + delta.X, nStartPos.Y.Scale, nStartPos.Y.Offset + delta.Y)
+		end
+	end)
+
+	-- Tính năng BẤM VÀO THẺ ĐỂ SAO CHÉP LINK DISCORD
+	NotifFrame.MouseButton1Click:Connect(function()
+		if setclipboard then
+			setclipboard(DISCORD_LINK)
+		end
+		NotifTitle.Text = "✓ ĐÃ SAO CHÉP LINK DISCORD!"
+		task.wait(1.5)
+		NotifTitle.Text = hubTitleText
+	end)
 
 	local NotifIcon = Instance.new("TextLabel", NotifFrame)
 	NotifIcon.Position = UDim2.new(0, 12, 0, 8)
@@ -659,7 +696,7 @@ RunBtn.MouseButton1Click:Connect(function()
 	NotifIcon.TextSize = 14
 
 	local NotifTitle = Instance.new("TextLabel", NotifFrame)
-	NotifTitle.Position = UDim2.new(0, 40, 0, 8)
+	NotifTitle.Position = UDim2.new(0, 40, 0, 6)
 	NotifTitle.Size = UDim2.new(1, -50, 0, 18)
 	NotifTitle.BackgroundTransparency = 1
 	NotifTitle.Font = Enum.Font.GothamBold
@@ -670,12 +707,12 @@ RunBtn.MouseButton1Click:Connect(function()
 
 	local NotifSub = Instance.new("TextLabel", NotifFrame)
 	NotifSub.Parent = NotifFrame
-	NotifSub.Position = UDim2.new(0, 40, 0, 24)
+	NotifSub.Position = UDim2.new(0, 40, 0, 22)
 	NotifSub.Size = UDim2.new(1, -50, 0, 14)
 	NotifSub.BackgroundTransparency = 1
-	NotifSub.Font = Enum.Font.Gotham
+	NotifSub.Font = Enum.Font.GothamBold
 	NotifSub.Text = subTitleText
-	NotifSub.TextColor3 = Color3.fromRGB(90, 240, 140)
+	NotifSub.TextColor3 = Color3.fromRGB(255, 100, 100)
 	NotifSub.TextSize = 9
 	NotifSub.TextXAlignment = Enum.TextXAlignment.Left
 
@@ -686,8 +723,8 @@ RunBtn.MouseButton1Click:Connect(function()
 	NotifDetail.BackgroundTransparency = 1
 	NotifDetail.Font = Enum.Font.GothamMedium
 	NotifDetail.Text = statusDetailText
-	NotifDetail.TextColor3 = Color3.fromRGB(180, 180, 200)
-	NotifDetail.TextSize = 8
+	NotifDetail.TextColor3 = Color3.fromRGB(160, 170, 255)
+	NotifDetail.TextSize = 9
 	NotifDetail.TextXAlignment = Enum.TextXAlignment.Center
 
 	-- Tải và chạy script đã chọn
