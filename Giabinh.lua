@@ -11,7 +11,7 @@ if CoreGui:FindFirstChild("HiroseHubLoader") then
 end
 
 -- Cấu hình Script & Link
-local DISCORD_LINK = "https://discord.gg/uqhEpzXy9q"
+local DISCORD_LINK = "https://discord.gg/uqhEpzXy9q[span_2](start_span)"[span_2](end_span)
 local SCRIPTS = {
 	Chilli = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/tienkhanh1/spicy/main/Chilli.lua"))()',
 	Venyx = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/tienkhanh1/Venyx/main/VenyxHub"))()'
@@ -28,13 +28,13 @@ ScreenGui.Parent = CoreGui
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 ScreenGui.ResetOnSpawn = false
 
--- Khung chính (Main Frame - Cân đối, thanh thoát hơn)
+-- Khung chính (Main Frame - Thu gọn chiều ngang cho đỡ bè)
 local MainFrame = Instance.new("Frame")
 MainFrame.Name = "MainFrame"
 MainFrame.Parent = ScreenGui
 MainFrame.AnchorPoint = Vector2.new(0.5, 0.5)
 MainFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
-MainFrame.Size = UDim2.new(0, 380, 0, 435)
+MainFrame.Size = UDim2.new(0, 330, 0, 435)
 MainFrame.BackgroundColor3 = Color3.fromRGB(16, 16, 20)
 MainFrame.BorderSizePixel = 0
 
@@ -82,18 +82,18 @@ TopBar.BackgroundTransparency = 1
 local TitleLabel = Instance.new("TextLabel")
 TitleLabel.Parent = TopBar
 TitleLabel.Position = UDim2.new(0, 12, 0, 0)
-TitleLabel.Size = UDim2.new(0, 200, 1, 0)
+TitleLabel.Size = UDim2.new(0, 180, 1, 0)
 TitleLabel.BackgroundTransparency = 1
 TitleLabel.Font = Enum.Font.GothamBold
 TitleLabel.Text = "🌶️ CHILLI x VENYX"
 TitleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-TitleLabel.TextSize = 13
+TitleLabel.TextSize = 12
 TitleLabel.TextXAlignment = Enum.TextXAlignment.Left
 
 local VersionBadge = Instance.new("TextLabel")
 VersionBadge.Parent = TopBar
-VersionBadge.Position = UDim2.new(1, -94, 0.5, -10)
-VersionBadge.Size = UDim2.new(0, 54, 0, 20)
+VersionBadge.Position = UDim2.new(1, -90, 0.5, -10)
+VersionBadge.Size = UDim2.new(0, 50, 0, 20)
 VersionBadge.BackgroundColor3 = Color3.fromRGB(45, 28, 18)
 VersionBadge.Font = Enum.Font.GothamBold
 VersionBadge.Text = "v11.0.0"
@@ -103,7 +103,7 @@ Instance.new("UICorner", VersionBadge).CornerRadius = UDim.new(1, 0)
 
 local CloseBtn = Instance.new("TextButton")
 CloseBtn.Parent = TopBar
-CloseBtn.Position = UDim2.new(1, -34, 0.5, -11)
+CloseBtn.Position = UDim2.new(1, -32, 0.5, -11)
 CloseBtn.Size = UDim2.new(0, 22, 0, 22)
 CloseBtn.BackgroundColor3 = Color3.fromRGB(32, 32, 38)
 CloseBtn.Font = Enum.Font.GothamBold
@@ -140,7 +140,7 @@ NameLabel.Position = UDim2.new(0, 50, 0, 7)
 NameLabel.Size = UDim2.new(1, -60, 0, 14)
 NameLabel.BackgroundTransparency = 1
 NameLabel.Font = Enum.Font.GothamBold
-NameLabel.Text = "sonhuy1077"
+NameLabel.Text = "Hirose"
 NameLabel.TextColor3 = Color3.fromRGB(255, 190, 120)
 NameLabel.TextSize = 12
 NameLabel.TextXAlignment = Enum.TextXAlignment.Left
@@ -151,7 +151,7 @@ StatusLabel.Position = UDim2.new(0, 50, 0, 26)
 StatusLabel.Size = UDim2.new(1, -60, 0, 18)
 StatusLabel.BackgroundTransparency = 1
 StatusLabel.Font = Enum.Font.GothamMedium
-StatusLabel.Text = "Finder Free chuẩn cao · Giảm lag · Mượt ⚡"
+StatusLabel.Text = "Hirose Free · Giảm lag · Mượt ⚡"
 StatusLabel.TextColor3 = Color3.fromRGB(220, 140, 90)
 StatusLabel.TextSize = 9
 StatusLabel.TextXAlignment = Enum.TextXAlignment.Left
@@ -169,10 +169,10 @@ Instance.new("UICorner", FeatureCard).CornerRadius = UDim.new(0, 8)
 local FeatureTitle = Instance.new("TextLabel")
 FeatureTitle.Parent = FeatureCard
 FeatureTitle.Position = UDim2.new(0, 10, 0, 5)
-FeatureTitle.Size = UDim2.new(0, 200, 0, 15)
+FeatureTitle.Size = UDim2.new(0, 160, 0, 15)
 FeatureTitle.BackgroundTransparency = 1
 FeatureTitle.Font = Enum.Font.GothamBold
-FeatureTitle.Text = "🔍 VIREX - FINDER"
+FeatureTitle.Text = "🔍 HIROSE - FINDER"
 FeatureTitle.TextColor3 = Color3.fromRGB(100, 220, 140)
 FeatureTitle.TextSize = 10
 FeatureTitle.TextXAlignment = Enum.TextXAlignment.Left
@@ -180,21 +180,21 @@ FeatureTitle.TextXAlignment = Enum.TextXAlignment.Left
 local FeatureSub = Instance.new("TextLabel")
 FeatureSub.Parent = FeatureCard
 FeatureSub.Position = UDim2.new(0, 10, 0, 21)
-FeatureSub.Size = UDim2.new(0, 220, 0, 14)
+FeatureSub.Size = UDim2.new(0, 180, 0, 14)
 FeatureSub.BackgroundTransparency = 1
 FeatureSub.Font = Enum.Font.Gotham
-FeatureSub.Text = "Tính năng nổi bật nhất của bản V11"
+FeatureSub.Text = "Tính năng nổi bật của bản V11"
 FeatureSub.TextColor3 = Color3.fromRGB(150, 150, 165)
-FeatureSub.TextSize = 9
+FeatureSub.TextSize = 8.5
 FeatureSub.TextXAlignment = Enum.TextXAlignment.Left
 
 local FeatureBadge = Instance.new("TextLabel")
 FeatureBadge.Parent = FeatureCard
-FeatureBadge.Position = UDim2.new(1, -112, 0.5, -11)
-FeatureBadge.Size = UDim2.new(0, 104, 0, 22)
+FeatureBadge.Position = UDim2.new(1, -96, 0.5, -11)
+FeatureBadge.Size = UDim2.new(0, 88, 0, 22)
 FeatureBadge.BackgroundColor3 = Color3.fromRGB(24, 45, 32)
 FeatureBadge.Font = Enum.Font.GothamBold
-FeatureBadge.Text = "✓ TỈ LỆ CHUẨN CAO"
+FeatureBadge.Text = "✓ CHUẨN CAO"
 FeatureBadge.TextColor3 = Color3.fromRGB(90, 220, 130)
 FeatureBadge.TextSize = 8
 Instance.new("UICorner", FeatureBadge).CornerRadius = UDim.new(0, 6)
@@ -203,7 +203,7 @@ Instance.new("UICorner", FeatureBadge).CornerRadius = UDim.new(0, 6)
 local Sec2Title = Instance.new("TextLabel")
 Sec2Title.Parent = MainFrame
 Sec2Title.Position = UDim2.new(0, 12, 0, 146)
-Sec2Title.Size = UDim2.new(0, 150, 0, 18)
+Sec2Title.Size = UDim2.new(0, 120, 0, 18)
 Sec2Title.BackgroundTransparency = 1
 Sec2Title.Font = Enum.Font.GothamBold
 Sec2Title.Text = "🎮 CHỌN HUB"
@@ -213,13 +213,13 @@ Sec2Title.TextXAlignment = Enum.TextXAlignment.Left
 
 local SoundBtn = Instance.new("TextButton")
 SoundBtn.Parent = MainFrame
-SoundBtn.Position = UDim2.new(1, -128, 0, 143)
-SoundBtn.Size = UDim2.new(0, 116, 0, 22)
+SoundBtn.Position = UDim2.new(1, -122, 0, 143)
+SoundBtn.Size = UDim2.new(0, 110, 0, 22)
 SoundBtn.BackgroundColor3 = Color3.fromRGB(28, 120, 68)
 SoundBtn.Font = Enum.Font.GothamBold
 SoundBtn.Text = "🔊 ÂM THANH: BẬT"
 SoundBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
-SoundBtn.TextSize = 9
+SoundBtn.TextSize = 8.5
 Instance.new("UICorner", SoundBtn).CornerRadius = UDim.new(1, 0)
 
 SoundBtn.MouseButton1Click:Connect(function()
@@ -253,44 +253,44 @@ local function CreateHubCard(name, pos, icon, title, subtitle)
 
 	local Icon = Instance.new("TextLabel")
 	Icon.Parent = Card
-	Icon.Position = UDim2.new(0, 10, 0, 8)
-	Icon.Size = UDim2.new(0, 28, 0, 28)
+	Icon.Position = UDim2.new(0, 8, 0, 8)
+	Icon.Size = UDim2.new(0, 24, 0, 24)
 	Icon.BackgroundTransparency = 1
 	Icon.Text = icon
-	Icon.TextSize = 18
+	Icon.TextSize = 16
 
 	local Title = Instance.new("TextLabel")
 	Title.Parent = Card
-	Title.Position = UDim2.new(0, 42, 0, 8)
-	Title.Size = UDim2.new(1, -48, 0, 16)
+	Title.Position = UDim2.new(0, 36, 0, 8)
+	Title.Size = UDim2.new(1, -40, 0, 16)
 	Title.BackgroundTransparency = 1
 	Title.Font = Enum.Font.GothamBold
 	Title.Text = title
 	Title.TextColor3 = Color3.fromRGB(255, 255, 255)
-	Title.TextSize = 12
+	Title.TextSize = 11
 	Title.TextXAlignment = Enum.TextXAlignment.Left
 
 	local Sub = Instance.new("TextLabel")
 	Sub.Parent = Card
-	Sub.Position = UDim2.new(0, 42, 0, 24)
-	Sub.Size = UDim2.new(1, -48, 0, 14)
+	Sub.Position = UDim2.new(0, 36, 0, 24)
+	Sub.Size = UDim2.new(1, -40, 0, 14)
 	Sub.BackgroundTransparency = 1
 	Sub.Font = Enum.Font.Gotham
 	Sub.Text = subtitle
 	Sub.TextColor3 = Color3.fromRGB(160, 160, 175)
-	Sub.TextSize = 10
+	Sub.TextSize = 9
 	Sub.TextXAlignment = Enum.TextXAlignment.Left
 
 	local StatusPill = Instance.new("TextLabel")
 	StatusPill.Name = "StatusPill"
 	StatusPill.Parent = Card
-	StatusPill.Position = UDim2.new(0, 10, 1, -28)
-	StatusPill.Size = UDim2.new(1, -20, 0, 20)
+	StatusPill.Position = UDim2.new(0, 8, 1, -28)
+	StatusPill.Size = UDim2.new(1, -16, 0, 20)
 	StatusPill.BackgroundColor3 = Color3.fromRGB(38, 38, 46)
 	StatusPill.Font = Enum.Font.GothamBold
 	StatusPill.Text = "Chọn"
 	StatusPill.TextColor3 = Color3.fromRGB(180, 180, 190)
-	StatusPill.TextSize = 10
+	StatusPill.TextSize = 9.5
 	Instance.new("UICorner", StatusPill).CornerRadius = UDim.new(0, 6)
 
 	return Card
@@ -354,7 +354,7 @@ Instance.new("UICorner", FpsCard).CornerRadius = UDim.new(0, 8)
 local FpsTitle = Instance.new("TextLabel")
 FpsTitle.Parent = FpsCard
 FpsTitle.Position = UDim2.new(0, 10, 0, 4)
-FpsTitle.Size = UDim2.new(0, 200, 0, 15)
+FpsTitle.Size = UDim2.new(0, 160, 0, 15)
 FpsTitle.BackgroundTransparency = 1
 FpsTitle.Font = Enum.Font.GothamBold
 FpsTitle.Text = "🌙 FPS Boost"
@@ -365,7 +365,7 @@ FpsTitle.TextXAlignment = Enum.TextXAlignment.Left
 local FpsSub = Instance.new("TextLabel")
 FpsSub.Parent = FpsCard
 FpsSub.Position = UDim2.new(0, 10, 0, 20)
-FpsSub.Size = UDim2.new(0, 220, 0, 14)
+FpsSub.Size = UDim2.new(0, 180, 0, 14)
 FpsSub.BackgroundTransparency = 1
 FpsSub.Font = Enum.Font.Gotham
 FpsSub.Text = "Giảm hiệu ứng, mượt hơn"
@@ -375,8 +375,8 @@ FpsSub.TextXAlignment = Enum.TextXAlignment.Left
 
 local FpsBtn = Instance.new("TextButton")
 FpsBtn.Parent = FpsCard
-FpsBtn.Position = UDim2.new(1, -58, 0.5, -11)
-FpsBtn.Size = UDim2.new(0, 48, 0, 22)
+FpsBtn.Position = UDim2.new(1, -54, 0.5, -11)
+FpsBtn.Size = UDim2.new(0, 44, 0, 22)
 FpsBtn.BackgroundColor3 = Color3.fromRGB(28, 135, 75)
 FpsBtn.Font = Enum.Font.GothamBold
 FpsBtn.Text = "BẬT"
@@ -403,7 +403,7 @@ Instance.new("UICorner", DiscordCard).CornerRadius = UDim.new(0, 8)
 local DiscordTitle = Instance.new("TextLabel")
 DiscordTitle.Parent = DiscordCard
 DiscordTitle.Position = UDim2.new(0, 10, 0, 4)
-DiscordTitle.Size = UDim2.new(0, 220, 0, 15)
+DiscordTitle.Size = UDim2.new(0, 180, 0, 15)
 DiscordTitle.BackgroundTransparency = 1
 DiscordTitle.Font = Enum.Font.GothamBold
 DiscordTitle.Text = "💬 THAM GIA DISCORD"
@@ -414,23 +414,23 @@ DiscordTitle.TextXAlignment = Enum.TextXAlignment.Left
 local DiscordLinkText = Instance.new("TextLabel")
 DiscordLinkText.Parent = DiscordCard
 DiscordLinkText.Position = UDim2.new(0, 10, 0, 20)
-DiscordLinkText.Size = UDim2.new(0, 230, 0, 14)
+DiscordLinkText.Size = UDim2.new(0, 180, 0, 14)
 DiscordLinkText.BackgroundTransparency = 1
 DiscordLinkText.Font = Enum.Font.Gotham
 DiscordLinkText.Text = DISCORD_LINK
 DiscordLinkText.TextColor3 = Color3.fromRGB(220, 225, 255)
-DiscordLinkText.TextSize = 10
+DiscordLinkText.TextSize = 9
 DiscordLinkText.TextXAlignment = Enum.TextXAlignment.Left
 
 local CopyBtn = Instance.new("TextButton")
 CopyBtn.Parent = DiscordCard
-CopyBtn.Position = UDim2.new(1, -84, 0.5, -11)
-CopyBtn.Size = UDim2.new(0, 74, 0, 22)
+CopyBtn.Position = UDim2.new(1, -80, 0.5, -11)
+CopyBtn.Size = UDim2.new(0, 72, 0, 22)
 CopyBtn.BackgroundColor3 = Color3.fromRGB(88, 101, 242)
 CopyBtn.Font = Enum.Font.GothamBold
 CopyBtn.Text = "📋 SAO CHÉP"
 CopyBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
-CopyBtn.TextSize = 9
+CopyBtn.TextSize = 8.5
 Instance.new("UICorner", CopyBtn).CornerRadius = UDim.new(0, 6)
 
 CopyBtn.MouseButton1Click:Connect(function()
@@ -457,7 +457,6 @@ Instance.new("UICorner", RunBtn).CornerRadius = UDim.new(1, 0)
 RunBtn.MouseButton1Click:Connect(function()
 	RunBtn.Text = "⏳ ĐANG TẢI " .. string.upper(SelectedHub) .. "..."
 	
-	-- Tối ưu hóa Fix Lag tối đa khi người dùng bật
 	if FpsBoostEnabled then
 		pcall(function()
 			settings().Rendering.QualityLevel = Enum.QualityLevel.Level01
