@@ -9,6 +9,9 @@ local Terrain = workspace:FindFirstChildOfClass("Terrain")
 if CoreGui:FindFirstChild("HiroseHubLoader") then
 	CoreGui.HiroseHubLoader:Destroy()
 end
+if CoreGui:FindFirstChild("ActiveHubNotification") then
+	CoreGui.ActiveHubNotification:Destroy()
+end
 
 -- Cấu hình Script & Link 3 Hub
 local DISCORD_LINK = "https://discord.gg/uqhEpzXy9q"
@@ -119,12 +122,12 @@ TopBar.ZIndex = 2
 local TitleLabel = Instance.new("TextLabel")
 TitleLabel.Parent = TopBar
 TitleLabel.Position = UDim2.new(0, 10, 0, 0)
-TitleLabel.Size = UDim2.new(0, 160, 1, 0)
+TitleLabel.Size = UDim2.new(0, 180, 1, 0)
 TitleLabel.BackgroundTransparency = 1
 TitleLabel.Font = Enum.Font.GothamBold
-TitleLabel.Text = "🌶️ CHILLI & VENYX" -- Đã đổi X thành &
+TitleLabel.Text = "🌶️ CHILLI & VENYX & DIVINE"
 TitleLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
-TitleLabel.TextSize = 13
+TitleLabel.TextSize = 10
 TitleLabel.TextXAlignment = Enum.TextXAlignment.Left
 TitleLabel.ZIndex = 2
 
@@ -155,7 +158,7 @@ CloseBtn.MouseButton1Click:Connect(function()
 	ScreenGui:Destroy()
 end)
 
--- Profile Card
+-- Profile Card (Tác giả: Hirose to rõ bên cạnh trái ớt)
 local ProfileCard = Instance.new("Frame")
 ProfileCard.Parent = MainFrame
 ProfileCard.Position = UDim2.new(0, 8, 0, 38)
@@ -177,21 +180,33 @@ IconBox.TextSize = 18
 IconBox.ZIndex = 2
 Instance.new("UICorner", IconBox).CornerRadius = UDim.new(0, 6)
 
+local AuthorLabel = Instance.new("TextLabel")
+AuthorLabel.Parent = ProfileCard
+AuthorLabel.Position = UDim2.new(0, 46, 0, 4)
+AuthorLabel.Size = UDim2.new(1, -54, 0, 16)
+AuthorLabel.BackgroundTransparency = 1
+AuthorLabel.Font = Enum.Font.GothamBold
+AuthorLabel.Text = "Tác giả: Hirose"
+AuthorLabel.TextColor3 = Color3.fromRGB(255, 100, 100)
+AuthorLabel.TextSize = 13
+AuthorLabel.TextXAlignment = Enum.TextXAlignment.Left
+AuthorLabel.ZIndex = 2
+
 local NameLabel = Instance.new("TextLabel")
 NameLabel.Parent = ProfileCard
-NameLabel.Position = UDim2.new(0, 46, 0, 6)
-NameLabel.Size = UDim2.new(1, -54, 0, 15)
+NameLabel.Position = UDim2.new(0, 46, 0, 20)
+NameLabel.Size = UDim2.new(1, -54, 0, 14)
 NameLabel.BackgroundTransparency = 1
 NameLabel.Font = Enum.Font.GothamBold
-NameLabel.Text = "Chilli & Venyx V11 Max" -- Đã đổi X thành &
+NameLabel.Text = "Chilli & Venyx & Divine V11 Max"
 NameLabel.TextColor3 = Color3.fromRGB(255, 190, 120)
-NameLabel.TextSize = 12
+NameLabel.TextSize = 10
 NameLabel.TextXAlignment = Enum.TextXAlignment.Left
 NameLabel.ZIndex = 2
 
 local SubLabel = Instance.new("TextLabel")
 SubLabel.Parent = ProfileCard
-SubLabel.Position = UDim2.new(0, 46, 0, 21)
+SubLabel.Position = UDim2.new(0, 46, 0, 34)
 SubLabel.Size = UDim2.new(1, -54, 0, 14)
 SubLabel.BackgroundTransparency = 1
 SubLabel.Font = Enum.Font.Gotham
@@ -203,11 +218,11 @@ SubLabel.ZIndex = 2
 
 local StatusLabel = Instance.new("TextLabel")
 StatusLabel.Parent = ProfileCard
-StatusLabel.Position = UDim2.new(0, 46, 0, 35)
-StatusLabel.Size = UDim2.new(1, -54, 0, 14)
+StatusLabel.Position = UDim2.new(0, 46, 0, 45)
+StatusLabel.Size = UDim2.new(1, -54, 0, 10)
 StatusLabel.BackgroundTransparency = 1
 StatusLabel.Font = Enum.Font.GothamMedium
-StatusLabel.Text = "⚡ FPS | CM40 | Chilli VIP | V11 Max"
+StatusLabel.Text = "⚡ FPS | CM40 | V11 Max"
 StatusLabel.TextColor3 = Color3.fromRGB(210, 210, 220)
 StatusLabel.TextSize = 8
 StatusLabel.TextXAlignment = Enum.TextXAlignment.Left
@@ -260,7 +275,7 @@ RateBadge.TextColor3 = Color3.fromRGB(120, 255, 190)
 RateBadge.TextSize = 8
 RateBadge.ZIndex = 2
 Instance.new("UICorner", RateBadge).CornerRadius = UDim.new(1, 0)
--- ==================== PHẦN 2: 3 HUBS & EXECUTE ====================
+-- ==================== PHẦN 2: 3 HUBS, SETTINGS & EXECUTE ====================
 local Sec2Title = Instance.new("TextLabel")
 Sec2Title.Parent = MainFrame
 Sec2Title.Position = UDim2.new(0, 10, 0, 144)
@@ -299,7 +314,7 @@ HubContainer.Size = UDim2.new(1, -16, 0, 76)
 HubContainer.BackgroundTransparency = 1
 HubContainer.ZIndex = 2
 
-local function CreateHubCard(name, pos, size, icon, title, subtitle)
+local function CreateHubCard(name, pos, size, icon, title)
 	local Card = Instance.new("TextButton")
 	Card.Name = name
 	Card.Parent = HubContainer
@@ -345,10 +360,9 @@ local function CreateHubCard(name, pos, size, icon, title, subtitle)
 	return Card
 end
 
--- 3 nút chia đều 3 cột (Chilli, Venyx, Divine)
-local ChilliCard = CreateHubCard("ChilliCard", UDim2.new(0, 0, 0, 0), UDim2.new(0.32, 0, 1, 0), "🔥", "Chilli", "VIP")
-local VenyxCard = CreateHubCard("VenyxCard", UDim2.new(0.34, 0, 0, 0), UDim2.new(0.32, 0, 1, 0), "⚡", "Venyx", "Hub 2")
-local DivineCard = CreateHubCard("DivineCard", UDim2.new(0.68, 0, 0, 0), UDim2.new(0.32, 0, 1, 0), "💎", "Divine", "Aquavine")
+local ChilliCard = CreateHubCard("ChilliCard", UDim2.new(0, 0, 0, 0), UDim2.new(0.32, 0, 1, 0), "🔥", "Chilli")
+local VenyxCard = CreateHubCard("VenyxCard", UDim2.new(0.34, 0, 0, 0), UDim2.new(0.32, 0, 1, 0), "⚡", "Venyx")
+local DivineCard = CreateHubCard("DivineCard", UDim2.new(0.68, 0, 0, 0), UDim2.new(0.32, 0, 1, 0), "💎", "Divine")
 
 local function UpdateHubSelection()
 	if SelectedHub == "Chilli" then
@@ -373,7 +387,7 @@ local function UpdateHubSelection()
 		DivineCard.StatusPill.TextColor3 = Color3.fromRGB(220, 220, 230)
 		DivineCard.StatusPill.Text = "Chọn"
 
-		NameLabel.Text = "Chilli & Venyx V11 Max" -- Đã đổi X thành &
+		NameLabel.Text = "Chilli & Venyx & Divine V11 Max"
 		SubLabel.Text = "● Sẵn sàng (Chilli VIP)"
 		StatusLabel.Text = "⚡ FPS | CM40 | Chilli VIP | V11 Max"
 
@@ -577,7 +591,7 @@ WishLabel.TextColor3 = Color3.fromRGB(255, 225, 80)
 WishLabel.TextSize = 10
 WishLabel.ZIndex = 3
 
--- Nút Chạy Script
+-- Nút Chạy Script (Tự động bật thẻ thông báo chính giữa màn hình game)
 local RunBtn = Instance.new("TextButton")
 RunBtn.Parent = MainFrame
 RunBtn.Position = UDim2.new(0, 8, 1, -36)
@@ -597,6 +611,86 @@ RunBtn.MouseButton1Click:Connect(function()
 		ApplyFixLag()
 	end
 
+	-- Lấy thông tin Hub đang chọn để hiển thị thẻ giữa màn hình
+	local hubTitleText = "Chilli & Venyx & Divine V11 Max"
+	local subTitleText = "● Sẵn sàng (Chilli VIP)"
+	local statusDetailText = "⚡ FPS | CM40 | Chilli VIP | V11 Max"
+	local iconSymbol = "🔥"
+	
+	if SelectedHub == "Venyx" then
+		hubTitleText = "Venyx Hub V11 Max"
+		subTitleText = "● Sẵn sàng (Venyx Hub 2)"
+		statusDetailText = "⚡ FPS | CM40 | Venyx Hub | V11 Max"
+		iconSymbol = "⚡"
+	elseif SelectedHub == "Divine" then
+		hubTitleText = "Divine Hub (Aquavine)"
+		subTitleText = "● Sẵn sàng (Aquavine Divine)"
+		statusDetailText = "⚡ FPS | CM40 | Divine Hub | V11 Max"
+		iconSymbol = "💎"
+	end
+
+	-- Tạo thẻ thông báo bám chính giữa màn hình game
+	local ActiveGui = Instance.new("ScreenGui")
+	ActiveGui.Name = "ActiveHubNotification"
+	ActiveGui.Parent = CoreGui
+	ActiveGui.ResetOnSpawn = false
+
+	local NotifFrame = Instance.new("Frame")
+	NotifFrame.Parent = ActiveGui
+	NotifFrame.AnchorPoint = Vector2.new(0.5, 0.5)
+	NotifFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
+	NotifFrame.Size = UDim2.new(0, 250, 0, 60)
+	NotifFrame.BackgroundColor3 = Color3.fromRGB(16, 16, 22)
+	NotifFrame.BackgroundTransparency = 0.2
+	NotifFrame.BorderSizePixel = 0
+
+	local NotifCorner = Instance.new("UICorner", NotifFrame)
+	NotifCorner.CornerRadius = UDim.new(1, 0)
+
+	local NotifStroke = Instance.new("UIStroke", NotifFrame)
+	NotifStroke.Color = Color3.fromRGB(60, 60, 80)
+	NotifStroke.Thickness = 1.5
+
+	local NotifIcon = Instance.new("TextLabel", NotifFrame)
+	NotifIcon.Position = UDim2.new(0, 12, 0, 8)
+	NotifIcon.Size = UDim2.new(0, 22, 0, 22)
+	NotifIcon.BackgroundTransparency = 1
+	NotifIcon.Text = iconSymbol
+	NotifIcon.TextSize = 14
+
+	local NotifTitle = Instance.new("TextLabel", NotifFrame)
+	NotifTitle.Position = UDim2.new(0, 40, 0, 8)
+	NotifTitle.Size = UDim2.new(1, -50, 0, 18)
+	NotifTitle.BackgroundTransparency = 1
+	NotifTitle.Font = Enum.Font.GothamBold
+	NotifTitle.Text = hubTitleText
+	NotifTitle.TextColor3 = Color3.fromRGB(255, 190, 120)
+	NotifTitle.TextSize = 10
+	NotifTitle.TextXAlignment = Enum.TextXAlignment.Left
+
+	local NotifSub = Instance.new("TextLabel", NotifFrame)
+	NotifSub.Parent = NotifFrame
+	NotifSub.Position = UDim2.new(0, 40, 0, 24)
+	NotifSub.Size = UDim2.new(1, -50, 0, 14)
+	NotifSub.BackgroundTransparency = 1
+	NotifSub.Font = Enum.Font.Gotham
+	NotifSub.Text = subTitleText
+	NotifSub.TextColor3 = Color3.fromRGB(90, 240, 140)
+	NotifSub.TextSize = 9
+	NotifSub.TextXAlignment = Enum.TextXAlignment.Left
+
+	local NotifDetail = Instance.new("TextLabel", NotifFrame)
+	NotifDetail.Parent = NotifFrame
+	NotifDetail.Position = UDim2.new(0, 12, 0, 38)
+	NotifDetail.Size = UDim2.new(1, -24, 0, 14)
+	NotifDetail.BackgroundTransparency = 1
+	NotifDetail.Font = Enum.Font.GothamMedium
+	NotifDetail.Text = statusDetailText
+	NotifDetail.TextColor3 = Color3.fromRGB(180, 180, 200)
+	NotifDetail.TextSize = 8
+	NotifDetail.TextXAlignment = Enum.TextXAlignment.Center
+
+	-- Tải và chạy script đã chọn
 	local targetCode = SCRIPTS[SelectedHub]
 	task.spawn(function()
 		local func, err = loadstring(targetCode)
